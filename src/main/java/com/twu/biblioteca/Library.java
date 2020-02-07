@@ -13,7 +13,7 @@ public class Library {
         this.books.add(book);
     }
 
-    public ArrayList<Book> viewBook() {
+    public ArrayList<Book> books() {
         return books;
     }
 }

@@ -1,13 +1,24 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
+
 class Biblioteca {
 
-    public static void main(String[] args) {
-        printWelcomeMessage();
+    void printListOfBooks() {
+        Library library = new Library();
+        ArrayList<Book> books = library.books();
+        for (Book book : books) {
+            System.out.println(book.name() + "  " + book.author() + "  " + book.publicationYear());
+        }
     }
 
-    private static void printWelcomeMessage() {
+    void printWelcomeMessage() {
         System.out.println(Message.WELCOME);
     }
 
+    public static void main(String[] args) {
+        Biblioteca biblioteca = new Biblioteca();
+        biblioteca.printWelcomeMessage();
+        biblioteca.printListOfBooks();
+    }
 }
