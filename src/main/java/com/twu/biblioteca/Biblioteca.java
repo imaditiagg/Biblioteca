@@ -1,10 +1,15 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 class Biblioteca {
 
-    void printListOfBooks() {
+    private void printWelcomeMessage() {
+        System.out.println(Message.WELCOME);
+    }
+
+    private void printListOfBooks() {
         Library library = new Library();
         ArrayList<Book> books = new ArrayList<>(library.books());
         for (Book book : books) {
@@ -12,13 +17,19 @@ class Biblioteca {
         }
     }
 
-    void printWelcomeMessage() {
-        System.out.println(Message.WELCOME);
+    private void printMenu() {
+        System.out.println("       ---------------- MENU --------------        ");
+        System.out.println("       1. View Books                               ");
     }
 
     public static void main(String[] args) {
         Biblioteca biblioteca = new Biblioteca();
         biblioteca.printWelcomeMessage();
-        biblioteca.printListOfBooks();
+        biblioteca.printMenu();
+        Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
+        if (choice == 1) {
+            biblioteca.printListOfBooks();
+        }
     }
 }
