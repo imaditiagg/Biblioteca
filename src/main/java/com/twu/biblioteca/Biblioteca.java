@@ -10,7 +10,8 @@ class Biblioteca {
     }
 
     private void printListOfBooks() {
-        ArrayList<Book> books = new ArrayList<>();
+        Library library = new Library();
+        ArrayList<Book> books = library.books();
         for (Book book : books) {
             System.out.println(book.name() + "  " + book.author() + "  " + book.publicationYear());
         }
