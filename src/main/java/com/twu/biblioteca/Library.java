@@ -9,8 +9,8 @@ public class Library {
         books = new ArrayList<>();
     }
 
-    public void addBook(Book book) {
-        this.books.add(book);
+    public Library(ArrayList<Book> books) {
+        this.books = books;
     }
 
     public ArrayList<Book> books() {

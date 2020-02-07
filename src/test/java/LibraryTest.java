@@ -1,38 +1,38 @@
 import com.twu.biblioteca.Library;
 import com.twu.biblioteca.Book;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
+
 class LibraryTest {
+    Library library;
 
     @Test
     void shouldGetBookOneAvailableInLibrary() {
-        Library library = new Library();
+
         Book bookOne = new Book("Operating Systems", 1990, "Galvin");
-        library.addBook(bookOne);
-        ArrayList<Book> expectedResult = new ArrayList<>();
-        expectedResult.add(bookOne);
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(bookOne);
+        library = new Library(books);
 
-        ArrayList<Book> actualResult = library.books();
+        ArrayList<Book> actualBooks = library.books();
 
-        Assertions.assertIterableEquals(expectedResult, actualResult);
+        assertIterableEquals(books, actualBooks);
     }
 
     @Test
     void shouldGetAllBooksAvailableInLibrary() {
-        Library library = new Library();
         Book bookOne = new Book("Operating Systems", 1999, "Galvin");
         Book bookTwo = new Book("Data Structures", 1990, "Narsimha karumanchi");
-        library.addBook(bookOne);
-        library.addBook(bookTwo);
-        ArrayList<Book> expectedResult = new ArrayList<>();
-        expectedResult.add(bookOne);
-        expectedResult.add(bookTwo);
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(bookOne);
+        books.add(bookTwo);
+        library = new Library(books);
 
-        ArrayList<Book> actualResult = library.books();
+        ArrayList<Book> actualBooks = library.books();
 
-        Assertions.assertIterableEquals(expectedResult, actualResult);
+        assertIterableEquals(books, actualBooks);
     }
 }
