@@ -1,10 +1,9 @@
 import com.twu.biblioteca.Library;
 import com.twu.biblioteca.Book;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
+import java.util.ArrayList;
 
 class LibraryTest {
 
@@ -13,10 +12,27 @@ class LibraryTest {
         Library library = new Library();
         Book bookOne = new Book("Operating Systems");
         library.addBook(bookOne);
-        String expectedResult = "Operating Systems";
+        ArrayList<Book> expectedResult= new ArrayList<>();
+        expectedResult.add(bookOne);
 
-        String actualResult = library.viewBook();
+        ArrayList<Book> actualResult = library.viewBook();
 
-        assertThat(expectedResult, is(equalTo(actualResult)));
+        Assertions.assertIterableEquals(expectedResult,actualResult);
+    }
+
+    @Test
+    void shouldShowAllBooksAvailableInLibrary() {
+        Library library = new Library();
+        Book bookOne = new Book("Operating Systems");
+        Book bookTwo = new Book("Operating Systems");
+        library.addBook(bookOne);
+        library.addBook(bookTwo);
+        ArrayList<Book> expectedResult= new ArrayList<>();
+        expectedResult.add(bookOne);
+        expectedResult.add(bookTwo);
+
+        ArrayList<Book> actualResult = library.viewBook();
+
+        Assertions.assertIterableEquals(expectedResult,actualResult);
     }
 }

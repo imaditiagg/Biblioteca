@@ -1,13 +1,19 @@
 package com.twu.biblioteca;
 
-public class Library {
-    Book book;
+import java.util.ArrayList;
 
-    public void addBook(Book book) {
-        this.book = book;
+public class Library {
+    private ArrayList<Book> books;
+
+    public Library() {
+        books = new ArrayList<>();
     }
 
-    public String viewBook() {
-        return this.book.getName();
+    public void addBook(Book book) {
+        this.books.add(book);
+    }
+
+    public ArrayList<Book> viewBook() {
+        return books;
     }
 }
