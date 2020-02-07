@@ -28,4 +28,13 @@ public class Library {
             }
         }
     }
+
+    public boolean checkForSuccessfulCheckout(String bookName) {
+        for (Book book : checkoutBooks) {
+            if (book.name().equals(bookName)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

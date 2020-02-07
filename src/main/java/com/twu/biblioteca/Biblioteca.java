@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -38,8 +37,13 @@ class Biblioteca {
     }
 
     private void checkoutBook() {
-        String bookName = "Operating Systems";
+        System.out.println("         Enter book name to checkout : ");
+        Scanner scanner = new Scanner(System.in);
+        String bookName = scanner.nextLine();
         library.checkout(bookName);
+        if (library.checkForSuccessfulCheckout(bookName)) {
+            System.out.println(Message.SUCCESSFUL_CHECKOUT);
+        }
     }
 
     public static void main(String[] args) {
