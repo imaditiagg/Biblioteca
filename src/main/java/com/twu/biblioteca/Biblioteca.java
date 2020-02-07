@@ -43,6 +43,8 @@ class Biblioteca {
         library.checkout(bookName);
         if (library.checkForSuccessfulCheckout(bookName)) {
             System.out.println(Message.SUCCESSFUL_CHECKOUT);
+        } else {
+            System.out.println(Message.UNSUCCESSFUL_CHECKOUT);
         }
     }
 
