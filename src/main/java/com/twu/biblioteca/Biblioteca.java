@@ -10,8 +10,7 @@ class Biblioteca {
     }
 
     private void printListOfBooks() {
-        Library library = new Library();
-        ArrayList<Book> books = new ArrayList<>(library.books());
+        ArrayList<Book> books = new ArrayList<>();
         for (Book book : books) {
             System.out.println(book.name() + "  " + book.author() + "  " + book.publicationYear());
         }
@@ -20,6 +19,15 @@ class Biblioteca {
     private void printMenu() {
         System.out.println("         ---------------- MENU --------------        ");
         System.out.println("         1. View Books                               ");
+        System.out.println("         2. Quit Application                         ");
+    }
+
+    private void printInvalidOptionMessage() {
+        System.out.println(Message.INVALID_OPTION);
+    }
+
+    private void quit() {
+        System.exit(0);
     }
 
     public static void main(String[] args) {
@@ -34,8 +42,10 @@ class Biblioteca {
             case 1:
                 biblioteca.printListOfBooks();
                 break;
+            case 2:
+                biblioteca.quit();
             default:
-                System.out.println(Message.INVALID_OPTION);
+                biblioteca.printInvalidOptionMessage();
         }
     }
 }

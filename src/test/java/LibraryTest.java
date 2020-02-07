@@ -11,7 +11,6 @@ class LibraryTest {
 
     @Test
     void shouldGetBookOneAvailableInLibrary() {
-
         Book bookOne = new Book("Operating Systems", 1990, "Galvin");
         ArrayList<Book> books = new ArrayList<>();
         books.add(bookOne);
