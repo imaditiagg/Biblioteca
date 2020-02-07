@@ -1,4 +1,4 @@
-import com.twu.biblioteca.Biblioteca;
+import com.twu.biblioteca.Library;
 import com.twu.biblioteca.Book;
 import org.junit.jupiter.api.Test;
 
@@ -6,16 +6,16 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
-class BibliotecaTest {
+class LibraryTest {
 
     @Test
     void shouldShowBookOneAvailableInLibrary() {
-        Biblioteca biblioteca = new Biblioteca();
+        Library library = new Library();
         Book bookOne = new Book("Operating Systems");
-        biblioteca.addBook(bookOne);
+        library.addBook(bookOne);
         String expectedResult = "Operating Systems";
 
-        String actualResult = biblioteca.viewBook();
+        String actualResult = library.viewBook();
 
         assertThat(expectedResult, is(equalTo(actualResult)));
     }
