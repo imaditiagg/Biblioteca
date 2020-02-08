@@ -81,7 +81,7 @@ class LibraryTest {
     }
 
     @Test
-    void shouldReturnBookToTheLibrary(){
+    void shouldReturnBookToTheLibrary() {
         Book bookOne = new Book("Operating Systems", 1999, "Galvin");
         Book bookTwo = new Book("Data Structures", 1990, "Narsimha karumanchi");
         ArrayList<Book> books = new ArrayList<>();
@@ -97,7 +97,7 @@ class LibraryTest {
     }
 
     @Test
-    void shouldNotAllowToReturnABookThatIsNotCheckoutYet(){
+    void shouldNotAllowToReturnABookThatIsNotCheckoutYet() {
         Book bookOne = new Book("Operating Systems", 1999, "Galvin");
         Book bookTwo = new Book("Data Structures", 1990, "Narsimha karumanchi");
         ArrayList<Book> books = new ArrayList<>();

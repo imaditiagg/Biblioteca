@@ -53,11 +53,10 @@ class Biblioteca {
         System.out.println("         Enter book name to return : ");
         Scanner scanner = new Scanner(System.in);
         String bookName = scanner.nextLine();
-        if(library.checkInCheckoutBooks(bookName)) {
+        if (library.checkInCheckoutBooks(bookName)) {
             library.returnBook(bookName);
             System.out.println(Message.SUCCESSFUL_RETURN);
-        }
-        else {
+        } else {
             System.out.println(Message.UNSUCCESSFUL_RETURN);
         }
     }
