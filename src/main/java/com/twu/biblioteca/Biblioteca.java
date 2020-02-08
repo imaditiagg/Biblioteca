@@ -71,7 +71,7 @@ class Biblioteca {
         biblioteca.printWelcomeMessage();
         System.out.println("\n");
         Scanner scanner = new Scanner(System.in);
-        char wantToContinue = 'Y';
+        char wantToContinue;
         do {
             biblioteca.printMenu();
             System.out.println("Enter your choice :  ");

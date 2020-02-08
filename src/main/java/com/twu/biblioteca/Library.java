@@ -40,14 +40,10 @@ public class Library {
     }
 
     public void returnBook(String bookName) {
-        if (checkInCheckoutBooks(bookName) != null) {
-            for (Book book : checkoutBooks) {
-                if (book.name().equals(bookName)) {
-                    checkoutBooks.remove(book);
-                    books.add(book);
-                    break;
-                }
-            }
+        Book book = checkInCheckoutBooks(bookName);
+        if (book != null) {
+            checkoutBooks.remove(book);
+            books.add(book);
         }
     }
 }
