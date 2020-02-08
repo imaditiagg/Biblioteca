@@ -25,25 +25,28 @@ public class Library {
             if (book.name().equals(bookName)) {
                 checkoutBooks.add(book);
                 books.remove(book);
+                break;
             }
         }
     }
 
-    public boolean checkInCheckoutBooks(String bookName) {
+    public Book checkInCheckoutBooks(String bookName) {
         for (Book book : checkoutBooks) {
             if (book.name().equals(bookName)) {
-                return true;
+                return book;
             }
         }
-        return false;
+        return null;
     }
 
     public void returnBook(String bookName) {
-        for (Book book : checkoutBooks) {
-            if (book.name().equals(bookName)) {
-                checkoutBooks.remove(book);
-                books.add(book);
-                break;
+        if (checkInCheckoutBooks(bookName) != null) {
+            for (Book book : checkoutBooks) {
+                if (book.name().equals(bookName)) {
+                    checkoutBooks.remove(book);
+                    books.add(book);
+                    break;
+                }
             }
         }
     }
