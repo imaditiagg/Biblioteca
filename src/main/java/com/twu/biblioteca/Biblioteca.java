@@ -3,6 +3,8 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static com.twu.biblioteca.Message.*;
+
 class Biblioteca {
     Library library;
 
@@ -14,7 +16,7 @@ class Biblioteca {
     }
 
     private void printWelcomeMessage() {
-        System.out.println(Message.WELCOME);
+        System.out.println(WELCOME);
     }
 
     private void printListOfBooks() {
@@ -34,7 +36,7 @@ class Biblioteca {
     }
 
     private void printInvalidOptionMessage() {
-        System.out.println(Message.INVALID_OPTION);
+        System.out.println(INVALID_OPTION);
     }
 
     private void quit() {
@@ -48,9 +50,9 @@ class Biblioteca {
         library.checkoutBook(bookName);
         System.out.println("hello");
         if (library.checkInCheckoutBooks(bookName) != null) {
-            System.out.println(Message.SUCCESSFUL_CHECKOUT);
+            System.out.println(SUCCESSFUL_CHECKOUT);
         } else {
-            System.out.println(Message.UNSUCCESSFUL_CHECKOUT);
+            System.out.println(UNSUCCESSFUL_CHECKOUT);
         }
     }
 
@@ -60,9 +62,9 @@ class Biblioteca {
         String bookName = scanner.nextLine();
         if (library.checkInCheckoutBooks(bookName) != null) {
             library.returnBook(bookName);
-            System.out.println(Message.SUCCESSFUL_RETURN);
+            System.out.println(SUCCESSFUL_RETURN);
         } else {
-            System.out.println(Message.UNSUCCESSFUL_RETURN);
+            System.out.println(UNSUCCESSFUL_RETURN);
         }
     }
 
