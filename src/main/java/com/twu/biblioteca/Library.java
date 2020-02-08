@@ -20,7 +20,7 @@ public class Library {
         return books;
     }
 
-    public void checkout(String bookName) {
+    public void checkoutBook(String bookName) {
         for (Book book : books) {
             if (book.name().equals(bookName)) {
                 checkoutBooks.add(book);
@@ -36,5 +36,15 @@ public class Library {
             }
         }
         return false;
+    }
+
+    public void returnBook(String bookName) {
+        for (Book book : checkoutBooks) {
+            if (book.name().equals(bookName)) {
+                checkoutBooks.remove(book);
+                books.add(book);
+                break;
+            }
+        }
     }
 }

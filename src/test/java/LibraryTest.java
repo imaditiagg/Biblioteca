@@ -45,7 +45,7 @@ class LibraryTest {
         library = new Library(books);
         String bookName = "Operating Systems";
 
-        library.checkout(bookName);
+        library.checkoutBook(bookName);
 
         assertFalse(library.books().contains(bookOne));
     }
@@ -60,7 +60,7 @@ class LibraryTest {
         library = new Library(books);
         String bookName = "Operating Systems";
 
-        library.checkout(bookName);
+        library.checkoutBook(bookName);
 
         assertTrue(library.checkForSuccessfulCheckout(bookName));
     }
@@ -75,8 +75,24 @@ class LibraryTest {
         library = new Library(books);
         String bookName = "Operating";
 
-        library.checkout(bookName);
+        library.checkoutBook(bookName);
 
         assertFalse(library.checkForSuccessfulCheckout(bookName));
+    }
+
+    @Test
+    void shouldReturnBookToTheLibrary(){
+        Book bookOne = new Book("Operating Systems", 1999, "Galvin");
+        Book bookTwo = new Book("Data Structures", 1990, "Narsimha karumanchi");
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(bookOne);
+        books.add(bookTwo);
+        library = new Library(books);
+        String bookName = "Operating Systems";
+        library.checkoutBook(bookName);
+
+        library.returnBook(bookName);
+
+        assertTrue(library.books().contains(bookOne));
     }
 }

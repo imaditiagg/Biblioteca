@@ -26,6 +26,7 @@ class Biblioteca {
         System.out.println("         1. View Books                               ");
         System.out.println("         2. Quit Application                         ");
         System.out.println("         3. Checkout Book                            ");
+        System.out.println("         4. Return a Book                            ");
     }
 
     private void printInvalidOptionMessage() {
@@ -40,12 +41,19 @@ class Biblioteca {
         System.out.println("         Enter book name to checkout : ");
         Scanner scanner = new Scanner(System.in);
         String bookName = scanner.nextLine();
-        library.checkout(bookName);
+        library.checkoutBook(bookName);
         if (library.checkForSuccessfulCheckout(bookName)) {
             System.out.println(Message.SUCCESSFUL_CHECKOUT);
         } else {
             System.out.println(Message.UNSUCCESSFUL_CHECKOUT);
         }
+    }
+
+    private void returnBook() {
+        System.out.println("         Enter book name to return : ");
+        Scanner scanner = new Scanner(System.in);
+        String bookName = scanner.nextLine();
+        library.returnBook(bookName);
     }
 
     public static void main(String[] args) {
@@ -64,6 +72,8 @@ class Biblioteca {
                 biblioteca.quit();
             case 3:
                 biblioteca.checkoutBook();
+            case 4:
+                biblioteca.returnBook();
             default:
                 biblioteca.printInvalidOptionMessage();
         }
