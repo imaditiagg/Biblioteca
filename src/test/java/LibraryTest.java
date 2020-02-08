@@ -62,7 +62,7 @@ class LibraryTest {
 
         library.checkoutBook(bookName);
 
-        assertTrue(library.checkForSuccessfulCheckout(bookName));
+        assertTrue(library.checkInCheckoutBooks(bookName));
     }
 
     @Test
@@ -77,7 +77,7 @@ class LibraryTest {
 
         library.checkoutBook(bookName);
 
-        assertFalse(library.checkForSuccessfulCheckout(bookName));
+        assertFalse(library.checkInCheckoutBooks(bookName));
     }
 
     @Test
@@ -94,5 +94,20 @@ class LibraryTest {
         library.returnBook(bookName);
 
         assertTrue(library.books().contains(bookOne));
+    }
+
+    @Test
+    void shouldNotAllowToReturnABookThatIsNotCheckoutYet(){
+        Book bookOne = new Book("Operating Systems", 1999, "Galvin");
+        Book bookTwo = new Book("Data Structures", 1990, "Narsimha karumanchi");
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(bookOne);
+        books.add(bookTwo);
+        library = new Library(books);
+        String bookName = "Operating Systems";
+
+        library.returnBook(bookName);
+
+        assertFalse(library.checkInCheckoutBooks(bookName));
     }
 }

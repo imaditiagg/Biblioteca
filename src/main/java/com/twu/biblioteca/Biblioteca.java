@@ -42,7 +42,7 @@ class Biblioteca {
         Scanner scanner = new Scanner(System.in);
         String bookName = scanner.nextLine();
         library.checkoutBook(bookName);
-        if (library.checkForSuccessfulCheckout(bookName)) {
+        if (library.checkInCheckoutBooks(bookName)) {
             System.out.println(Message.SUCCESSFUL_CHECKOUT);
         } else {
             System.out.println(Message.UNSUCCESSFUL_CHECKOUT);
@@ -53,7 +53,13 @@ class Biblioteca {
         System.out.println("         Enter book name to return : ");
         Scanner scanner = new Scanner(System.in);
         String bookName = scanner.nextLine();
-        library.returnBook(bookName);
+        if(library.checkInCheckoutBooks(bookName)) {
+            library.returnBook(bookName);
+            System.out.println(Message.SUCCESSFUL_RETURN);
+        }
+        else {
+            System.out.println(Message.UNSUCCESSFUL_RETURN);
+        }
     }
 
     public static void main(String[] args) {
