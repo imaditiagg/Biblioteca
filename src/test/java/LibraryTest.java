@@ -62,7 +62,7 @@ class LibraryTest {
 
         library.checkoutBook(bookName);
 
-        assertNotEquals(null,library.checkInCheckoutBooks(bookName));
+        assertNotEquals(null, library.checkInCheckoutBooks(bookName));
     }
 
     @Test
