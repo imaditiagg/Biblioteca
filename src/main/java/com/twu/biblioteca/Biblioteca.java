@@ -2,11 +2,11 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-class Biblioteca {
+public class Biblioteca {
     private final Library library;
     private final Menu menu;
 
-    Biblioteca() {
+    public Biblioteca() {
         Book book = new Book("The Notebook", 1996, "Nicholas Sparks");
         ArrayList<Book> books = new ArrayList<>();
         books.add(book);
@@ -29,5 +29,9 @@ class Biblioteca {
 
     public StringBuilder displayMenu() {
         return menu.display();
+    }
+
+    public void execute(int index) {
+        menu.onOptionSelect(index, library);
     }
 }
