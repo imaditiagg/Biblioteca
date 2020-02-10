@@ -1,13 +1,15 @@
 package com.twu.biblioteca;
 
-public class Menu {
-    private final MenuItem menuItem;
+import java.util.ArrayList;
 
-    public Menu(MenuItem menuItem) {
-        this.menuItem = menuItem;
+public class Menu {
+    private final ArrayList<MenuItem> menuItems;
+
+    public Menu(ArrayList<MenuItem> menuItems) {
+        this.menuItems = menuItems;
     }
 
     public int noOfMenuItems() {
-        return 1;
+        return menuItems.size();
     }
 }
