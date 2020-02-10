@@ -6,4 +6,9 @@ public class QuitApplication implements MenuItem {
     QuitApplication(String description) {
         this.description = description;
     }
+
+    @Override
+    public String description() {
+        return description;
+    }
 }

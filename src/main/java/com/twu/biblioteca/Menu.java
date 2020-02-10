@@ -12,4 +12,16 @@ public class Menu {
     public int noOfMenuItems() {
         return menuItems.size();
     }
+
+    public StringBuilder display() {
+        StringBuilder menuOutput = new StringBuilder();
+        int index = 1;
+        for (MenuItem option : menuItems) {
+            menuOutput.append(index).append(".  ");
+            menuOutput.append(option.description());
+            menuOutput.append("\n");
+            index++;
+        }
+        return menuOutput;
+    }
 }

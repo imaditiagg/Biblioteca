@@ -6,4 +6,9 @@ public class ReturnBook implements MenuItem {
     ReturnBook(String description) {
         this.description = description;
     }
+
+    @Override
+    public String description() {
+        return description;
+    }
 }

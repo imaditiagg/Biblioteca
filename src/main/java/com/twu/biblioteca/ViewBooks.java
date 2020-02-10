@@ -7,4 +7,8 @@ public class ViewBooks implements MenuItem {
         this.description = description;
     }
 
+    @Override
+    public String description() {
+        return description;
+    }
 }
