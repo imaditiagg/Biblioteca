@@ -11,4 +11,9 @@ public class ReturnBook implements MenuItem {
     public String description() {
         return description;
     }
+
+    @Override
+    public void action(Library library) {
+
+    }
 }

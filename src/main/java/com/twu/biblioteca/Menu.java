@@ -24,4 +24,8 @@ public class Menu {
         }
         return menuOutput;
     }
+
+    public void onOptionSelect(int index,Library library){
+        menuItems.get(index).action(library);
+    }
 }
