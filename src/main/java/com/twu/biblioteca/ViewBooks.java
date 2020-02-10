@@ -15,7 +15,7 @@ public class ViewBooks implements MenuItem {
     }
 
     @Override
-    public void action(Library library) {
+    public void action(Library library, Biblioteca biblioteca) {
         ArrayList<Book> books = library.books();
         for (Book book : books) {
             book.print();

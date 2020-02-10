@@ -25,11 +25,7 @@ public class Menu {
         return menuOutput;
     }
 
-    public void onOptionSelect(int index, Library library) {
-        menuItems.get(index).action(library);
-    }
-
-    public ArrayList<MenuItem> menuItems() {
-        return menuItems;
+    public void onOptionSelect(int index, Library library, Biblioteca biblioteca) {
+        menuItems.get(index).action(library, biblioteca);
     }
 }

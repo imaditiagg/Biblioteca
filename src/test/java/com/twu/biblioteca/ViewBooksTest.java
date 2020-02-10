@@ -10,6 +10,7 @@ class ViewBooksTest {
 
     @Test
     void shouldCallPrintForBothBooks() {
+        Biblioteca bibliotecaMock = mock(Biblioteca.class);
         Book bookMock1 = mock(Book.class);
         Book bookMock2 = mock(Book.class);
         MenuItem viewBooks = new ViewBooks("View Books");
@@ -19,7 +20,7 @@ class ViewBooksTest {
         books.add(bookMock2);
         when(libraryMock.books()).thenReturn(books);
 
-        viewBooks.action(libraryMock);
+        viewBooks.action(libraryMock, bibliotecaMock);
 
         verify(bookMock1, times(1)).print();
         verify(bookMock2, times(1)).print();

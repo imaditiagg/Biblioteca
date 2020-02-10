@@ -26,4 +26,14 @@ class BibliotecaTest {
 
         assertEquals(expectedOutput, actualOutput);
     }
+
+    @Test
+    void shouldReturnEnterBookNameMessage() {
+        Biblioteca biblioteca = new Biblioteca();
+        String expectedOutput = Message.ENTER_BOOK_NAME;
+
+        String actualOutput = biblioteca.printEnterBookNameMessage();
+
+        assertEquals(expectedOutput, actualOutput);
+    }
 }

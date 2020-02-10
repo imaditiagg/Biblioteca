@@ -2,9 +2,12 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
+import static com.twu.biblioteca.Message.*;
+
 public class Biblioteca {
     private final Library library;
     private final Menu menu;
+    private String bookNameEnteredByUser;
 
     public Biblioteca() {
         Book book = new Book("The Notebook", 1996, "Nicholas Sparks");
@@ -24,7 +27,7 @@ public class Biblioteca {
     }
 
     public String welcomeMessage() {
-        return Message.WELCOME;
+        return WELCOME;
     }
 
     public StringBuilder displayMenu() {
@@ -32,6 +35,34 @@ public class Biblioteca {
     }
 
     public void execute(int index) {
-        menu.onOptionSelect(index, library);
+        menu.onOptionSelect(index, library, this);
+    }
+
+    public void setBookNameEnteredByUser(String bookName) {
+        bookNameEnteredByUser = bookName;
+    }
+
+    public String getBookNameEnteredByUser() {
+        return bookNameEnteredByUser;
+    }
+
+    public String printEnterBookNameMessage() {
+        return ENTER_BOOK_NAME;
+    }
+
+    public String printCheckoutStatus() {
+        if (library.checkInCheckoutBooks(bookNameEnteredByUser) != null) {
+            return SUCCESSFUL_CHECKOUT;
+        } else {
+            return UNSUCCESSFUL_CHECKOUT;
+        }
+    }
+
+    public String printReturnStatus() {
+        if (library.checkInCheckoutBooks(bookNameEnteredByUser) != null) {
+            return SUCCESSFUL_RETURN;
+        } else {
+            return UNSUCCESSFUL_RETURN;
+        }
     }
 }

@@ -13,7 +13,7 @@ public class QuitApplication implements MenuItem {
     }
 
     @Override
-    public void action(Library library) {
-
+    public void action(Library library, Biblioteca biblioteca) {
+        System.exit(0);
     }
 }

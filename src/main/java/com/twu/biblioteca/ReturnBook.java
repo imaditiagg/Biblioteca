@@ -13,7 +13,8 @@ public class ReturnBook implements MenuItem {
     }
 
     @Override
-    public void action(Library library) {
-
+    public void action(Library library, Biblioteca biblioteca) {
+        String bookName = biblioteca.getBookNameEnteredByUser();
+        library.returnBook(bookName);
     }
 }

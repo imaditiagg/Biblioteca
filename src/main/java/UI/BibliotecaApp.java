@@ -6,18 +6,31 @@ import java.util.Scanner;
 
 public class BibliotecaApp {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Biblioteca biblioteca = new Biblioteca();
         System.out.println(biblioteca.welcomeMessage());
         System.out.println("----------MENU-----------");
-
         Scanner scanner = new Scanner(System.in);
         char wantToContinue;
         do {
             System.out.println(biblioteca.displayMenu());
             System.out.println("Enter your choice :  ");
             int choice = scanner.nextInt();
-            biblioteca.execute(choice - 1);
+            if (choice == 1 || choice == 4) {
+                biblioteca.execute(choice - 1);
+            } else if (choice == 2 || choice == 3) {
+                System.out.println(biblioteca.printEnterBookNameMessage());
+                scanner = new Scanner(System.in);
+                String bookName = scanner.nextLine();
+                biblioteca.setBookNameEnteredByUser(bookName);
+                if (choice == 2) {
+                    biblioteca.execute(choice - 1);
+                    System.out.println(biblioteca.printCheckoutStatus());
+                } else {
+                    System.out.println(biblioteca.printReturnStatus());
+                    biblioteca.execute(choice - 1);
+                }
+            }
             System.out.println("Do you want to continue? (Y/N) ");
             wantToContinue = scanner.next().charAt(0);
         }
