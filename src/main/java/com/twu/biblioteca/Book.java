@@ -14,12 +14,4 @@ public class Book {
     String name() {
         return name;
     }
-
-    String author() {
-        return author;
-    }
-
-    int publicationYear() {
-        return publicationYear;
-    }
 }

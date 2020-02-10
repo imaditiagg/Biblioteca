@@ -6,11 +6,6 @@ public class Library {
     private ArrayList<Book> books;
     private ArrayList<Book> checkoutBooks;
 
-    public Library() {
-        books = new ArrayList<>();
-        checkoutBooks = new ArrayList<>();
-    }
-
     public Library(ArrayList<Book> books) {
         checkoutBooks = new ArrayList<>();
         this.books = books;
