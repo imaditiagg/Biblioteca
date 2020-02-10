@@ -10,10 +10,10 @@ class MenuTest {
 
     @Test
     void shouldAddAllMenuItemsToMenu() {
-        MenuItem menuItemOne = new ViewBooks();
-        MenuItem menuItemTwo = new CheckoutBook();
-        MenuItem menuItemThree = new ReturnBook();
-        MenuItem menuItemFour = new QuitApplication();
+        MenuItem menuItemOne = new ViewBooks("View Books");
+        MenuItem menuItemTwo = new CheckoutBook("Checkout Book");
+        MenuItem menuItemThree = new ReturnBook("Return Book");
+        MenuItem menuItemFour = new QuitApplication("Quit Application");
         ArrayList<MenuItem> menuItems = new ArrayList<>();
         menuItems.add(menuItemOne);
         menuItems.add(menuItemTwo);

@@ -1,4 +1,9 @@
 package com.twu.biblioteca;
 
 public class QuitApplication implements MenuItem {
+    private final String description;
+
+    QuitApplication(String description) {
+        this.description = description;
+    }
 }

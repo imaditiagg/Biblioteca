@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import java.util.function.Function;
+
 public class Book {
     private final String name;
     private final int publicationYear;
