@@ -1,5 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.logic;
 
+//Job: To Represent Book
 public class Book {
     private final String name;
     private final int publicationYear;
@@ -11,7 +12,7 @@ public class Book {
         this.author = author;
     }
 
-    String name() {
+    public String name() {
         return name;
     }
 

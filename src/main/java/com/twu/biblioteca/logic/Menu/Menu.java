@@ -1,7 +1,11 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.logic.Menu;
+
+import com.twu.biblioteca.logic.Biblioteca;
+import com.twu.biblioteca.logic.Library;
 
 import java.util.ArrayList;
 
+//Job: To Represent Menu
 public class Menu {
     private final ArrayList<MenuItem> menuItems;
 

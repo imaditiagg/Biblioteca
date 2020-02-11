@@ -1,7 +1,8 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.logic;
 
 import java.util.ArrayList;
 
+//Job: To Represent Library
 public class Library {
     private ArrayList<Book> books;
     private ArrayList<Book> checkoutBooks;

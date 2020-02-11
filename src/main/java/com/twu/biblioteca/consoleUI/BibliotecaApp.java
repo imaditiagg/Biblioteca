@@ -1,6 +1,6 @@
-package UI;
+package com.twu.biblioteca.consoleUI;
 
-import com.twu.biblioteca.Biblioteca;
+import com.twu.biblioteca.logic.Biblioteca;
 
 import java.util.Scanner;
 

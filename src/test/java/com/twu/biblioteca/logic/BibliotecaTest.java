@@ -1,4 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.logic;
+
+import com.twu.biblioteca.logic.Menu.Menu;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,5 +1,7 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.logic.Menu;
 
+import com.twu.biblioteca.logic.Biblioteca;
+import com.twu.biblioteca.logic.Library;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,5 +1,8 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.logic.Menu;
 
+import com.twu.biblioteca.logic.Biblioteca;
+import com.twu.biblioteca.logic.Book;
+import com.twu.biblioteca.logic.Library;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

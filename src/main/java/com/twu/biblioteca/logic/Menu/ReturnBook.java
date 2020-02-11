@@ -1,9 +1,13 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.logic.Menu;
 
-public class CheckoutBook implements MenuItem {
+import com.twu.biblioteca.logic.Biblioteca;
+import com.twu.biblioteca.logic.Library;
+
+//Job: To Represent ReturnBook Menu Item
+public class ReturnBook implements MenuItem {
     private final String description;
 
-    CheckoutBook(String description) {
+    public ReturnBook(String description) {
         this.description = description;
     }
 
@@ -15,6 +19,6 @@ public class CheckoutBook implements MenuItem {
     @Override
     public void action(Library library, Biblioteca biblioteca) {
         String bookName = biblioteca.getBookNameEnteredByUser();
-        library.checkoutBook(bookName);
+        library.returnBook(bookName);
     }
 }

@@ -1,9 +1,10 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.logic;
+
+import com.twu.biblioteca.logic.Menu.*;
 
 import java.util.ArrayList;
 
-import static com.twu.biblioteca.Message.*;
-
+//Job: To provide functionality to the client
 public class Biblioteca {
     private final Library library;
     private final Menu menu;
@@ -14,7 +15,7 @@ public class Biblioteca {
         this(buildMenu(), buildLibrary());
     }
 
-    Biblioteca(Menu menu, Library library) {
+    public Biblioteca(Menu menu, Library library) {
         this.library = library;
         this.menu = menu;
     }
@@ -28,7 +29,7 @@ public class Biblioteca {
     }
 
     public String welcomeMessage() {
-        return WELCOME;
+        return Message.WELCOME;
     }
 
     public StringBuilder displayMenu() {
@@ -48,22 +49,22 @@ public class Biblioteca {
     }
 
     public String printEnterBookNameMessage() {
-        return ENTER_BOOK_NAME;
+        return Message.ENTER_BOOK_NAME;
     }
 
     public String printCheckoutStatus() {
         if (library.checkInCheckoutBooks(bookNameEnteredByUser) != null) {
-            return SUCCESSFUL_CHECKOUT;
+            return Message.SUCCESSFUL_CHECKOUT;
         } else {
-            return UNSUCCESSFUL_CHECKOUT;
+            return Message.UNSUCCESSFUL_CHECKOUT;
         }
     }
 
     public String printReturnStatus() {
         if (library.checkInCheckoutBooks(bookNameEnteredByUser) != null) {
-            return SUCCESSFUL_RETURN;
+            return Message.SUCCESSFUL_RETURN;
         } else {
-            return UNSUCCESSFUL_RETURN;
+            return Message.UNSUCCESSFUL_RETURN;
         }
     }
 
@@ -72,6 +73,10 @@ public class Biblioteca {
         ArrayList<Book> books = new ArrayList<>();
         books.add(book);
         return new Library(books);
+    }
+
+    public void quit() {
+        System.exit(0);
     }
 
     private static Menu buildMenu() {
@@ -85,9 +90,5 @@ public class Biblioteca {
         menuItems.add(menuItemThree);
         menuItems.add(menuItemFour);
         return new Menu(menuItems);
-    }
-
-    public void quit() {
-        System.exit(0);
     }
 }

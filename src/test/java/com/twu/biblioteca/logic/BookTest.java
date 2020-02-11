@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.logic;
 
 import org.junit.jupiter.api.Test;
 
