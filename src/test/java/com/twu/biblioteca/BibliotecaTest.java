@@ -59,4 +59,28 @@ class BibliotecaTest {
 
         verify(menuMock, times(1)).onOptionSelect(0, libraryMock, biblioteca);
     }
+
+    @Test
+    void shouldReturnUnSuccessfulCheckoutStatus() {
+        Library libraryMock = mock(Library.class);
+        Menu menuMock = mock(Menu.class);
+        Biblioteca biblioteca = new Biblioteca(menuMock, libraryMock);
+        when(libraryMock.checkInCheckoutBooks("The Notebook")).thenReturn(null);
+        String expectedOutput = Message.UNSUCCESSFUL_CHECKOUT;
+
+        String actualOutput = biblioteca.printCheckoutStatus();
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    void shouldReturnUnSuccessfulReturnStatus() {
+        Library libraryMock = mock(Library.class);
+        Menu menuMock = mock(Menu.class);
+        Biblioteca biblioteca = new Biblioteca(menuMock, libraryMock);
+        when(libraryMock.checkInCheckoutBooks("The Notebook")).thenReturn(null);
+        String expectedOutput = Message.UNSUCCESSFUL_RETURN;
+
+        String actualOutput = biblioteca.printReturnStatus();
+        assertEquals(expectedOutput, actualOutput);
+    }
 }
