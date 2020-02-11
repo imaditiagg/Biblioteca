@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 class ViewBooksTest {
@@ -24,5 +25,15 @@ class ViewBooksTest {
 
         verify(bookMock1, times(1)).print();
         verify(bookMock2, times(1)).print();
+    }
+
+    @Test
+    void shouldReturnViewBooksDescription() {
+        MenuItem viewBooks = new ViewBooks("View Books");
+        String expectedOutput = "View Books";
+
+        String actualOutput = viewBooks.description();
+
+        assertEquals(expectedOutput, actualOutput);
     }
 }
