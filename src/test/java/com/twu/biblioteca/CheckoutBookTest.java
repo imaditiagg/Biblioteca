@@ -9,8 +9,8 @@ class CheckoutBookTest {
 
     @Test
     void shouldReturnCheckoutBookDescription() {
-        MenuItem checkoutBook = new QuitApplication("Quit Application");
-        String expectedOutput = "Quit Application";
+        MenuItem checkoutBook = new CheckoutBook("Checkout Book");
+        String expectedOutput = "Checkout Book";
 
         String actualOutput = checkoutBook.description();
 
