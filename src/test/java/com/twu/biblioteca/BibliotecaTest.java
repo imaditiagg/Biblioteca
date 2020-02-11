@@ -83,4 +83,34 @@ class BibliotecaTest {
         String actualOutput = biblioteca.printReturnStatus();
         assertEquals(expectedOutput, actualOutput);
     }
+
+    @Test
+    void shouldReturnSuccessfulCheckoutStatus() {
+        Library libraryMock = mock(Library.class);
+        Menu menuMock = mock(Menu.class);
+        Book bookMock = mock(Book.class);
+        Biblioteca biblioteca = new Biblioteca(menuMock, libraryMock);
+        biblioteca.setBookNameEnteredByUser("The Notebook");
+        when(libraryMock.checkInCheckoutBooks("The Notebook")).thenReturn(bookMock);
+        String expectedOutput = Message.SUCCESSFUL_CHECKOUT;
+
+        String actualOutput = biblioteca.printCheckoutStatus();
+
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    void shouldReturnSuccessfulReturnStatus() {
+        Library libraryMock = mock(Library.class);
+        Menu menuMock = mock(Menu.class);
+        Book bookMock = mock(Book.class);
+        Biblioteca biblioteca = new Biblioteca(menuMock, libraryMock);
+        biblioteca.setBookNameEnteredByUser("Data Structures");
+        when(libraryMock.checkInCheckoutBooks("Data Structures")).thenReturn(bookMock);
+        String expectedOutput = Message.SUCCESSFUL_CHECKOUT;
+
+        String actualOutput = biblioteca.printCheckoutStatus();
+
+        assertEquals(expectedOutput, actualOutput);
+    }
 }

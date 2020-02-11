@@ -13,26 +13,6 @@ public class Biblioteca {
         this(buildMenu(), buildLibrary());
     }
 
-    private static Library buildLibrary() {
-        Book book = new Book("The Notebook", 1996, "Nicholas Sparks");
-        ArrayList<Book> books = new ArrayList<>();
-        books.add(book);
-        return new Library(books);
-    }
-
-    private static Menu buildMenu() {
-        MenuItem menuItemOne = new ViewBooks("View Books");
-        MenuItem menuItemTwo = new CheckoutBook("Checkout Book");
-        MenuItem menuItemThree = new ReturnBook("Return Book");
-        MenuItem menuItemFour = new QuitApplication("Quit Application");
-        ArrayList<MenuItem> menuItems = new ArrayList<>();
-        menuItems.add(menuItemOne);
-        menuItems.add(menuItemTwo);
-        menuItems.add(menuItemThree);
-        menuItems.add(menuItemFour);
-        return new Menu(menuItems);
-    }
-
     Biblioteca(Menu menu, Library library) {
         this.library = library;
         this.menu = menu;
@@ -76,5 +56,25 @@ public class Biblioteca {
         } else {
             return UNSUCCESSFUL_RETURN;
         }
+    }
+
+    private static Library buildLibrary() {
+        Book book = new Book("The Notebook", 1996, "Nicholas Sparks");
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(book);
+        return new Library(books);
+    }
+
+    private static Menu buildMenu() {
+        MenuItem menuItemOne = new ViewBooks("View Books");
+        MenuItem menuItemTwo = new CheckoutBook("Checkout Book");
+        MenuItem menuItemThree = new ReturnBook("Return Book");
+        MenuItem menuItemFour = new QuitApplication("Quit Application");
+        ArrayList<MenuItem> menuItems = new ArrayList<>();
+        menuItems.add(menuItemOne);
+        menuItems.add(menuItemTwo);
+        menuItems.add(menuItemThree);
+        menuItems.add(menuItemFour);
+        return new Menu(menuItems);
     }
 }
