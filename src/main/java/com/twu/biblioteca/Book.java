@@ -16,7 +16,7 @@ public class Book {
     }
 
     public String display() {
-        return name + " ; " + author + " ; " + publicationYear;
+        return name + " ; " + author + " ; " + publicationYear + "\n";
     }
 
     @Override

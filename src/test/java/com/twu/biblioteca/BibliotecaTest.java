@@ -107,9 +107,20 @@ class BibliotecaTest {
         Biblioteca biblioteca = new Biblioteca(menuMock, libraryMock);
         biblioteca.setBookNameEnteredByUser("Data Structures");
         when(libraryMock.checkInCheckoutBooks("Data Structures")).thenReturn(bookMock);
-        String expectedOutput = Message.SUCCESSFUL_CHECKOUT;
+        String expectedOutput = Message.SUCCESSFUL_RETURN;
 
-        String actualOutput = biblioteca.printCheckoutStatus();
+        String actualOutput = biblioteca.printReturnStatus();
+
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    void shouldReturnBooksList() {
+        Biblioteca biblioteca = new Biblioteca();
+        biblioteca.setBooksList("Operating system ; Galvin ; 1990");
+        String actualOutput = "Operating system ; Galvin ; 1990";
+
+        String expectedOutput = biblioteca.getBooksList();
 
         assertEquals(expectedOutput, actualOutput);
     }

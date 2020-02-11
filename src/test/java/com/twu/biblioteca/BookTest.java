@@ -50,12 +50,12 @@ class BookTest {
     }
 
     @Test
-    void shouldDisplayBookDetails(){
+    void shouldDisplayBookDetails() {
         Book book = new Book("Operating system", 1998, "Galvin");
-        String expectedOutput = "Operating system"+" ; "+"Galvin"+" ; "+"1998";
+        String expectedOutput = "Operating system" + " ; " + "Galvin" + " ; " + "1998" + "\n";
 
         String actualOutput = book.display();
 
-        assertEquals(expectedOutput,actualOutput);
+        assertEquals(expectedOutput, actualOutput);
     }
 }
