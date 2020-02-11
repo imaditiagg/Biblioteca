@@ -8,5 +8,7 @@ public class Message {
     public static final String UNSUCCESSFUL_CHECKOUT = "Sorry, that book is not available\n";
     public static final String SUCCESSFUL_RETURN = "Thank you for returning the book\n";
     public static final String UNSUCCESSFUL_RETURN = "That is not a valid book to return\n";
-    public static final String INVALID_OPTION = "Please select a valid option";
+    public static final String INVALID_OPTION = "Please select a valid option\n";
+    public static final String NO_BOOK_AVAILABLE = "No Book available in Library currently\n";
+    public static final String BOOKS_LIST = "------ Books List ------\n";
 }

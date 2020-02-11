@@ -2,6 +2,7 @@ package com.twu.biblioteca.logic.Menu;
 
 import com.twu.biblioteca.logic.Book;
 import com.twu.biblioteca.logic.Library;
+import com.twu.biblioteca.logic.Message;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
@@ -27,7 +28,12 @@ public class ViewBooks implements MenuItem {
         for (Book book : books) {
             booksList = booksList + book.display();
         }
-        printWriter.print(booksList);
+        if (booksList.length() != 0) {
+            printWriter.print(Message.BOOKS_LIST);
+            printWriter.print(booksList);
+        } else {
+            printWriter.print(Message.NO_BOOK_AVAILABLE);
+        }
         printWriter.flush();
     }
 }
