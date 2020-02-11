@@ -10,10 +10,17 @@ public class Biblioteca {
     private String bookNameEnteredByUser;
 
     public Biblioteca() {
+        this(buildMenu(), buildLibrary());
+    }
+
+    private static Library buildLibrary() {
         Book book = new Book("The Notebook", 1996, "Nicholas Sparks");
         ArrayList<Book> books = new ArrayList<>();
         books.add(book);
-        library = new Library(books);
+        return new Library(books);
+    }
+
+    private static Menu buildMenu() {
         MenuItem menuItemOne = new ViewBooks("View Books");
         MenuItem menuItemTwo = new CheckoutBook("Checkout Book");
         MenuItem menuItemThree = new ReturnBook("Return Book");
@@ -23,7 +30,12 @@ public class Biblioteca {
         menuItems.add(menuItemTwo);
         menuItems.add(menuItemThree);
         menuItems.add(menuItemFour);
-        menu = new Menu(menuItems);
+        return new Menu(menuItems);
+    }
+
+    Biblioteca(Menu menu, Library library) {
+        this.library = library;
+        this.menu = menu;
     }
 
     public String welcomeMessage() {

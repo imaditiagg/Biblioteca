@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
 
 class BibliotecaTest {
 
@@ -35,5 +36,27 @@ class BibliotecaTest {
         String actualOutput = biblioteca.printEnterBookNameMessage();
 
         assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    void shouldReturnTheBookNameEnteredByUser() {
+        Biblioteca biblioteca = new Biblioteca();
+        String expectedOutput = "Data Structures";
+
+        biblioteca.setBookNameEnteredByUser("Data Structures");
+        String actualOutput = biblioteca.getBookNameEnteredByUser();
+
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    void shouldCallOnOptionSelectOfMenu() {
+        Library libraryMock = mock(Library.class);
+        Menu menuMock = mock(Menu.class);
+        Biblioteca biblioteca = new Biblioteca(menuMock, libraryMock);
+
+        biblioteca.execute(0);
+
+        verify(menuMock, times(1)).onOptionSelect(0, libraryMock, biblioteca);
     }
 }
