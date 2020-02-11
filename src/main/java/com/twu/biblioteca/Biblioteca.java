@@ -86,4 +86,8 @@ public class Biblioteca {
         menuItems.add(menuItemFour);
         return new Menu(menuItems);
     }
+
+    public void quit() {
+        System.exit(0);
+    }
 }
