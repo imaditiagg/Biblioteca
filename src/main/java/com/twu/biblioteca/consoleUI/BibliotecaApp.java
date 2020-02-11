@@ -61,7 +61,7 @@ public class BibliotecaApp implements UserInterface {
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(menu, library);
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        PrintWriter printWriter = new PrintWriter(System.out);
+        PrintWriter printWriter = new PrintWriter(System.out, true);
 
         System.out.println(bibliotecaApp.welcomeMessage());
         System.out.println("----------MENU-----------");

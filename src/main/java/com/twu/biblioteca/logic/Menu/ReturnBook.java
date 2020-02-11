@@ -22,15 +22,14 @@ public class ReturnBook implements MenuItem {
 
     @Override
     public void action(Library library, BufferedReader bufferedReader, PrintWriter printWriter) throws IOException {
-        printWriter.print(Message.ENTER_BOOK_NAME);
-        printWriter.flush();
+        printWriter.println(Message.ENTER_BOOK_NAME);
         String bookName = bufferedReader.readLine();
         if (library.findInCheckoutBooks(bookName) != null) {
-            printWriter.print(Message.SUCCESSFUL_RETURN);
+            printWriter.println(Message.SUCCESSFUL_RETURN);
         } else {
-            printWriter.print(Message.UNSUCCESSFUL_RETURN);
+            printWriter.println(Message.UNSUCCESSFUL_RETURN);
         }
         library.returnBook(bookName);
-        printWriter.flush();
     }
 }
+

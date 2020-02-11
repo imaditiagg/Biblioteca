@@ -2,6 +2,7 @@ package com.twu.biblioteca.logic.Menu;
 
 import com.twu.biblioteca.consoleUI.BibliotecaApp;
 import com.twu.biblioteca.logic.Book;
+import com.twu.biblioteca.logic.Exception.InvalidMenuOption;
 import com.twu.biblioteca.logic.Library;
 import org.junit.jupiter.api.Test;
 
@@ -59,7 +60,7 @@ class MenuTest {
     }
 
     @Test
-    void shouldCallViewBooksAction() throws IOException {
+    void shouldCallViewBooksAction() throws IOException, InvalidMenuOption {
         MenuItem viewBookMenuItemMock = mock(ViewBooks.class);
         menuItems = new ArrayList<>();
         menuItems.add(viewBookMenuItemMock);
@@ -73,13 +74,13 @@ class MenuTest {
         books.add(bookMock);
         when(libraryMock.books()).thenReturn(books);
 
-        menu.onOptionSelect(0, libraryMock, bufferedReaderMock,printWriterMock);
+        menu.onOptionSelect(0, libraryMock, bufferedReaderMock, printWriterMock);
 
-        verify(viewBookMenuItemMock, times(1)).action(libraryMock, bufferedReaderMock,printWriterMock);
+        verify(viewBookMenuItemMock, times(1)).action(libraryMock, bufferedReaderMock, printWriterMock);
     }
 
     @Test
-    void shouldCallCheckoutBookAction() throws IOException {
+    void shouldCallCheckoutBookAction() throws IOException, InvalidMenuOption {
         MenuItem viewBookMenuItemMock = mock(ViewBooks.class);
         MenuItem checkoutBookMenuItemMock = mock(CheckoutBook.class);
         menuItems = new ArrayList<>();
@@ -95,13 +96,13 @@ class MenuTest {
         books.add(bookMock);
         when(libraryMock.books()).thenReturn(books);
 
-        menu.onOptionSelect(1, libraryMock, bufferedReaderMock,printWriterMock);
+        menu.onOptionSelect(1, libraryMock, bufferedReaderMock, printWriterMock);
 
-        verify(checkoutBookMenuItemMock, times(1)).action(libraryMock, bufferedReaderMock,printWriterMock);
+        verify(checkoutBookMenuItemMock, times(1)).action(libraryMock, bufferedReaderMock, printWriterMock);
     }
 
     @Test
-    void shouldCallReturnBookAction() throws IOException {
+    void shouldCallReturnBookAction() throws IOException, InvalidMenuOption {
         MenuItem viewBookMenuItemMock = mock(ViewBooks.class);
         MenuItem checkoutBookMenuItemMock = mock(CheckoutBook.class);
         MenuItem returnBookMenuItemMock = mock(ReturnBook.class);
@@ -119,13 +120,13 @@ class MenuTest {
         books.add(bookMock);
         when(libraryMock.books()).thenReturn(books);
 
-        menu.onOptionSelect(2, libraryMock, bufferedReaderMock,printWriterMock);
+        menu.onOptionSelect(2, libraryMock, bufferedReaderMock, printWriterMock);
 
-        verify(returnBookMenuItemMock, times(1)).action(libraryMock, bufferedReaderMock,printWriterMock);
+        verify(returnBookMenuItemMock, times(1)).action(libraryMock, bufferedReaderMock, printWriterMock);
     }
 
     @Test
-    void shouldCallQuitApplicationAction() throws IOException {
+    void shouldCallQuitApplicationAction() throws IOException, InvalidMenuOption {
         MenuItem viewBookMenuItemMock = mock(ViewBooks.class);
         MenuItem checkoutBookMenuItemMock = mock(CheckoutBook.class);
         MenuItem returnBookMenuItemMock = mock(ReturnBook.class);
@@ -145,9 +146,9 @@ class MenuTest {
         books.add(bookMock);
         when(libraryMock.books()).thenReturn(books);
 
-        menu.onOptionSelect(3, libraryMock, bufferedReaderMock,printWriterMock);
+        menu.onOptionSelect(3, libraryMock, bufferedReaderMock, printWriterMock);
 
-        verify(quitApplicationMock, times(1)).action(libraryMock, bufferedReaderMock,printWriterMock);
+        verify(quitApplicationMock, times(1)).action(libraryMock, bufferedReaderMock, printWriterMock);
     }
 
     @Test

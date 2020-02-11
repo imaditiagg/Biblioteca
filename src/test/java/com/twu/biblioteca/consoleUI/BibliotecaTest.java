@@ -1,5 +1,6 @@
 package com.twu.biblioteca.consoleUI;
 
+import com.twu.biblioteca.logic.Exception.InvalidMenuOption;
 import com.twu.biblioteca.logic.Library;
 import com.twu.biblioteca.logic.Menu.Menu;
 import com.twu.biblioteca.logic.Message;
@@ -48,7 +49,7 @@ class BibliotecaTest {
     }
 
     @Test
-    void shouldCallOnOptionSelectOfMenu() throws IOException {
+    void shouldCallOnOptionSelectOfMenu() throws IOException, InvalidMenuOption {
         Library libraryMock = mock(Library.class);
         Menu menuMock = mock(Menu.class);
         BufferedReader bufferedReaderMock = mock(BufferedReader.class);

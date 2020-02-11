@@ -23,14 +23,12 @@ public class CheckoutBook implements MenuItem {
     @Override
     public void action(Library library, BufferedReader bufferedReader, PrintWriter printWriter) throws IOException {
         printWriter.println(Message.ENTER_BOOK_NAME);
-        printWriter.flush();
         String bookName = bufferedReader.readLine();
         library.checkoutBook(bookName);
         if (library.findInCheckoutBooks(bookName) != null) {
-            printWriter.write(Message.SUCCESSFUL_CHECKOUT);
+            printWriter.println(Message.SUCCESSFUL_CHECKOUT);
         } else {
-            printWriter.write(Message.UNSUCCESSFUL_CHECKOUT);
+            printWriter.println(Message.UNSUCCESSFUL_CHECKOUT);
         }
-        printWriter.flush();
     }
 }

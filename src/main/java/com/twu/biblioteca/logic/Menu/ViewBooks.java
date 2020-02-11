@@ -29,11 +29,10 @@ public class ViewBooks implements MenuItem {
             booksList = booksList + book.display();
         }
         if (booksList.length() != 0) {
-            printWriter.print(Message.BOOKS_LIST);
-            printWriter.print(booksList);
+            printWriter.println(Message.BOOKS_LIST);
+            printWriter.println(booksList);
         } else {
-            printWriter.print(Message.NO_BOOK_AVAILABLE);
+            printWriter.println(Message.NO_BOOK_AVAILABLE);
         }
-        printWriter.flush();
     }
 }
