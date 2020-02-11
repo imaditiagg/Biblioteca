@@ -1,10 +1,13 @@
 package com.twu.biblioteca.logic.Menu;
 
-import com.twu.biblioteca.logic.Biblioteca;
+import com.twu.biblioteca.consoleUI.BibliotecaApp;
 import com.twu.biblioteca.logic.Book;
 import com.twu.biblioteca.logic.Library;
 import org.junit.jupiter.api.Test;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,6 +18,10 @@ class MenuTest {
     public static final int NO_OF_MENU_ITEMS = 4;
     Menu menu;
     ArrayList<MenuItem> menuItems;
+    BufferedReader bufferedReaderMock;
+    PrintWriter printWriterMock;
+    BibliotecaApp bibliotecaAppMock;
+    Library libraryMock;
 
     @Test
     void shouldAddAllMenuItemsToMenu() {
@@ -52,45 +59,49 @@ class MenuTest {
     }
 
     @Test
-    void shouldCallViewBooksAction() {
+    void shouldCallViewBooksAction() throws IOException {
         MenuItem viewBookMenuItemMock = mock(ViewBooks.class);
         menuItems = new ArrayList<>();
         menuItems.add(viewBookMenuItemMock);
         menu = new Menu(menuItems);
-        Biblioteca bibliotecaMock = mock(Biblioteca.class);
+        bibliotecaAppMock = mock(BibliotecaApp.class);
+        bufferedReaderMock = mock(BufferedReader.class);
+        printWriterMock = mock(PrintWriter.class);
         Book bookMock = mock(Book.class);
-        Library libraryMock = mock(Library.class);
+        libraryMock = mock(Library.class);
         ArrayList<Book> books = new ArrayList<>();
         books.add(bookMock);
         when(libraryMock.books()).thenReturn(books);
 
-        menu.onOptionSelect(0, libraryMock, bibliotecaMock);
+        menu.onOptionSelect(0, libraryMock, bufferedReaderMock,printWriterMock);
 
-        verify(viewBookMenuItemMock, times(1)).action(libraryMock, bibliotecaMock);
+        verify(viewBookMenuItemMock, times(1)).action(libraryMock, bufferedReaderMock,printWriterMock);
     }
 
     @Test
-    void shouldCallCheckoutBookAction() {
+    void shouldCallCheckoutBookAction() throws IOException {
         MenuItem viewBookMenuItemMock = mock(ViewBooks.class);
         MenuItem checkoutBookMenuItemMock = mock(CheckoutBook.class);
         menuItems = new ArrayList<>();
         menuItems.add(viewBookMenuItemMock);
         menuItems.add(checkoutBookMenuItemMock);
         menu = new Menu(menuItems);
-        Biblioteca bibliotecaMock = mock(Biblioteca.class);
+        bibliotecaAppMock = mock(BibliotecaApp.class);
+        bufferedReaderMock = mock(BufferedReader.class);
+        printWriterMock = mock(PrintWriter.class);
         Book bookMock = mock(Book.class);
-        Library libraryMock = mock(Library.class);
+        libraryMock = mock(Library.class);
         ArrayList<Book> books = new ArrayList<>();
         books.add(bookMock);
         when(libraryMock.books()).thenReturn(books);
 
-        menu.onOptionSelect(1, libraryMock, bibliotecaMock);
+        menu.onOptionSelect(1, libraryMock, bufferedReaderMock,printWriterMock);
 
-        verify(checkoutBookMenuItemMock, times(1)).action(libraryMock, bibliotecaMock);
+        verify(checkoutBookMenuItemMock, times(1)).action(libraryMock, bufferedReaderMock,printWriterMock);
     }
 
     @Test
-    void shouldCallReturnBookAction() {
+    void shouldCallReturnBookAction() throws IOException {
         MenuItem viewBookMenuItemMock = mock(ViewBooks.class);
         MenuItem checkoutBookMenuItemMock = mock(CheckoutBook.class);
         MenuItem returnBookMenuItemMock = mock(ReturnBook.class);
@@ -99,20 +110,22 @@ class MenuTest {
         menuItems.add(checkoutBookMenuItemMock);
         menuItems.add(returnBookMenuItemMock);
         menu = new Menu(menuItems);
-        Biblioteca bibliotecaMock = mock(Biblioteca.class);
+        bibliotecaAppMock = mock(BibliotecaApp.class);
+        bufferedReaderMock = mock(BufferedReader.class);
+        printWriterMock = mock(PrintWriter.class);
         Book bookMock = mock(Book.class);
-        Library libraryMock = mock(Library.class);
+        libraryMock = mock(Library.class);
         ArrayList<Book> books = new ArrayList<>();
         books.add(bookMock);
         when(libraryMock.books()).thenReturn(books);
 
-        menu.onOptionSelect(2, libraryMock, bibliotecaMock);
+        menu.onOptionSelect(2, libraryMock, bufferedReaderMock,printWriterMock);
 
-        verify(returnBookMenuItemMock, times(1)).action(libraryMock, bibliotecaMock);
+        verify(returnBookMenuItemMock, times(1)).action(libraryMock, bufferedReaderMock,printWriterMock);
     }
 
     @Test
-    void shouldCallQuitApplicationAction() {
+    void shouldCallQuitApplicationAction() throws IOException {
         MenuItem viewBookMenuItemMock = mock(ViewBooks.class);
         MenuItem checkoutBookMenuItemMock = mock(CheckoutBook.class);
         MenuItem returnBookMenuItemMock = mock(ReturnBook.class);
@@ -123,16 +136,18 @@ class MenuTest {
         menuItems.add(returnBookMenuItemMock);
         menuItems.add(quitApplicationMock);
         menu = new Menu(menuItems);
-        Biblioteca bibliotecaMock = mock(Biblioteca.class);
+        bibliotecaAppMock = mock(BibliotecaApp.class);
+        bufferedReaderMock = mock(BufferedReader.class);
+        printWriterMock = mock(PrintWriter.class);
         Book bookMock = mock(Book.class);
-        Library libraryMock = mock(Library.class);
+        libraryMock = mock(Library.class);
         ArrayList<Book> books = new ArrayList<>();
         books.add(bookMock);
         when(libraryMock.books()).thenReturn(books);
 
-        menu.onOptionSelect(3, libraryMock, bibliotecaMock);
+        menu.onOptionSelect(3, libraryMock, bufferedReaderMock,printWriterMock);
 
-        verify(quitApplicationMock, times(1)).action(libraryMock, bibliotecaMock);
+        verify(quitApplicationMock, times(1)).action(libraryMock, bufferedReaderMock,printWriterMock);
     }
 
     @Test

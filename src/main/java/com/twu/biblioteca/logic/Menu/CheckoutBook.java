@@ -1,7 +1,11 @@
 package com.twu.biblioteca.logic.Menu;
 
-import com.twu.biblioteca.logic.Biblioteca;
 import com.twu.biblioteca.logic.Library;
+import com.twu.biblioteca.logic.Message;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 //Job: To Represent CheckoutBook Menu Item
 public class CheckoutBook implements MenuItem {
@@ -17,8 +21,14 @@ public class CheckoutBook implements MenuItem {
     }
 
     @Override
-    public void action(Library library, Biblioteca biblioteca) {
-        String bookName = biblioteca.getBookNameEnteredByUser();
+    public void action(Library library, BufferedReader bufferedReader, PrintWriter printWriter) throws IOException {
+        printWriter.println(Message.ENTER_BOOK_NAME);
+        String bookName = bufferedReader.readLine();
         library.checkoutBook(bookName);
+        if (library.findInCheckoutBooks(bookName )!= null) {
+            printWriter.write(Message.SUCCESSFUL_CHECKOUT);
+        } else {
+            printWriter.write(Message.UNSUCCESSFUL_CHECKOUT);
+        }
     }
 }

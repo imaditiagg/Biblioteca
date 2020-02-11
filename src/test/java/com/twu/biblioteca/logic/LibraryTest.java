@@ -62,7 +62,7 @@ class LibraryTest {
 
         library.checkoutBook(bookName);
 
-        assertNotEquals(null, library.checkInCheckoutBooks(bookName));
+        assertNotEquals(null, library.findInCheckoutBooks(bookName));
     }
 
     @Test
@@ -77,7 +77,7 @@ class LibraryTest {
 
         library.checkoutBook(bookName);
 
-        assertNull(library.checkInCheckoutBooks(bookName));
+        assertNull(library.findInCheckoutBooks(bookName));
     }
 
     @Test
@@ -108,6 +108,6 @@ class LibraryTest {
 
         library.returnBook(bookName);
 
-        assertNull(library.checkInCheckoutBooks(bookName));
+        assertNull(library.findInCheckoutBooks(bookName));
     }
 }

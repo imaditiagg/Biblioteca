@@ -1,10 +1,13 @@
 package com.twu.biblioteca.logic.Menu;
 
-import com.twu.biblioteca.logic.Biblioteca;
+import com.twu.biblioteca.consoleUI.BibliotecaApp;
 import com.twu.biblioteca.logic.Book;
 import com.twu.biblioteca.logic.Library;
 import org.junit.jupiter.api.Test;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,8 +16,9 @@ import static org.mockito.Mockito.*;
 class ViewBooksTest {
 
     @Test
-    void shouldCallPrintForBothBooks() {
-        Biblioteca bibliotecaMock = mock(Biblioteca.class);
+    void shouldCallPrintForBothBooks() throws IOException {
+        BufferedReader bufferedReaderMock = mock(BufferedReader.class);
+        PrintWriter printWriterMock = mock(PrintWriter.class);
         Book bookMock1 = mock(Book.class);
         Book bookMock2 = mock(Book.class);
         MenuItem viewBooks = new ViewBooks("View Books");
@@ -24,7 +28,7 @@ class ViewBooksTest {
         books.add(bookMock2);
         when(libraryMock.books()).thenReturn(books);
 
-        viewBooks.action(libraryMock, bibliotecaMock);
+        viewBooks.action(libraryMock, bufferedReaderMock,printWriterMock);
 
         verify(bookMock1, times(1)).display();
         verify(bookMock2, times(1)).display();

@@ -1,8 +1,10 @@
 package com.twu.biblioteca.logic.Menu;
 
-import com.twu.biblioteca.logic.Biblioteca;
 import com.twu.biblioteca.logic.Library;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 //Job: To Represent Menu
@@ -29,7 +31,7 @@ public class Menu {
         return menuOutput;
     }
 
-    public void onOptionSelect(int index, Library library, Biblioteca biblioteca) {
-        menuItems.get(index).action(library, biblioteca);
+    public void onOptionSelect(int index, Library library, BufferedReader bufferedReader, PrintWriter printWriter) throws IOException {
+        menuItems.get(index).action(library, bufferedReader, printWriter);
     }
 }

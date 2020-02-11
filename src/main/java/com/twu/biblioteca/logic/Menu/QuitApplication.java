@@ -1,7 +1,9 @@
 package com.twu.biblioteca.logic.Menu;
 
-import com.twu.biblioteca.logic.Biblioteca;
 import com.twu.biblioteca.logic.Library;
+
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 
 //Job: To represent QuitApplication Menu Item
 public class QuitApplication implements MenuItem {
@@ -17,7 +19,7 @@ public class QuitApplication implements MenuItem {
     }
 
     @Override
-    public void action(Library library, Biblioteca biblioteca) {
-        biblioteca.quit();
+    public void action(Library library, BufferedReader bufferedReader, PrintWriter printWriter) {
+        System.exit(0);
     }
 }

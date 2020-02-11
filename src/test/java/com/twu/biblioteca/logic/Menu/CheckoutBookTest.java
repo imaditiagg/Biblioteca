@@ -1,8 +1,11 @@
 package com.twu.biblioteca.logic.Menu;
 
-import com.twu.biblioteca.logic.Biblioteca;
 import com.twu.biblioteca.logic.Library;
 import org.junit.jupiter.api.Test;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -20,14 +23,14 @@ class CheckoutBookTest {
     }
 
     @Test
-    void shouldCallLibraryCheckout() {
+    void shouldCallLibraryCheckout() throws IOException {
         MenuItem checkoutBook = new CheckoutBook("Checkout Book");
         Library libraryMock = mock(Library.class);
-        Biblioteca bibliotecaMock = mock(Biblioteca.class);
-        when(bibliotecaMock.getBookNameEnteredByUser()).thenReturn("Harry Potter");
+        BufferedReader bufferedReaderMock = mock(BufferedReader.class);
+        PrintWriter printWriterMock = mock(PrintWriter.class);
 
-        checkoutBook.action(libraryMock, bibliotecaMock);
+        checkoutBook.action(libraryMock, bufferedReaderMock, printWriterMock);
 
-        verify(libraryMock, times(1)).checkoutBook("Harry Potter");
+        verify(libraryMock, times(1)).checkoutBook(null);
     }
 }

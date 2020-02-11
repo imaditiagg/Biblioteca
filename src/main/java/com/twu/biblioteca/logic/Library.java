@@ -5,10 +5,9 @@ import java.util.ArrayList;
 //Job: To Represent Library
 public class Library {
     private ArrayList<Book> books;
-    private ArrayList<Book> checkoutBooks;
+    private ArrayList<Book> checkoutBooks = new ArrayList<>();
 
     public Library(ArrayList<Book> books) {
-        checkoutBooks = new ArrayList<>();
         this.books = books;
     }
 
@@ -26,7 +25,7 @@ public class Library {
         }
     }
 
-    public Book checkInCheckoutBooks(String bookName) {
+    public Book findInCheckoutBooks(String bookName) {
         for (Book book : checkoutBooks) {
             if (book.name().equals(bookName)) {
                 return book;
@@ -36,7 +35,7 @@ public class Library {
     }
 
     public void returnBook(String bookName) {
-        Book book = checkInCheckoutBooks(bookName);
+        Book book = findInCheckoutBooks(bookName);
         if (book != null) {
             checkoutBooks.remove(book);
             books.add(book);
