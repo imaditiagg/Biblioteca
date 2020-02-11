@@ -23,8 +23,8 @@ class ViewBooksTest {
 
         viewBooks.action(libraryMock, bibliotecaMock);
 
-        verify(bookMock1, times(1)).print();
-        verify(bookMock2, times(1)).print();
+        verify(bookMock1, times(1)).display();
+        verify(bookMock2, times(1)).display();
     }
 
     @Test

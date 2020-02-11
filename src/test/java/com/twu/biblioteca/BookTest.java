@@ -48,4 +48,14 @@ class BookTest {
         String string = " ";
         assertNotEquals(bookOne, string);
     }
+
+    @Test
+    void shouldDisplayBookDetails(){
+        Book book = new Book("Operating system", 1998, "Galvin");
+        String expectedOutput = "Operating system"+" ; "+"Galvin"+" ; "+"1998";
+
+        String actualOutput = book.display();
+
+        assertEquals(expectedOutput,actualOutput);
+    }
 }

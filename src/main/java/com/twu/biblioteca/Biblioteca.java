@@ -8,6 +8,7 @@ public class Biblioteca {
     private final Library library;
     private final Menu menu;
     private String bookNameEnteredByUser;
+    private String booksList;
 
     public Biblioteca() {
         this(buildMenu(), buildLibrary());
@@ -16,6 +17,14 @@ public class Biblioteca {
     Biblioteca(Menu menu, Library library) {
         this.library = library;
         this.menu = menu;
+    }
+
+    public String getBooksList() {
+        return booksList;
+    }
+
+    public void setBooksList(String booksList) {
+        this.booksList = booksList;
     }
 
     public String welcomeMessage() {

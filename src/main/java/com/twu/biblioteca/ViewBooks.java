@@ -18,7 +18,7 @@ public class ViewBooks implements MenuItem {
     public void action(Library library, Biblioteca biblioteca) {
         ArrayList<Book> books = library.books();
         for (Book book : books) {
-            book.print();
+            biblioteca.setBooksList(book.display());
         }
     }
 }

@@ -16,8 +16,9 @@ public class BibliotecaApp {
             System.out.println(biblioteca.displayMenu());
             System.out.println("Enter your choice :  ");
             int choice = scanner.nextInt();
-            if (choice == 1 || choice == 4) {
+            if (choice == 1) {
                 biblioteca.execute(choice - 1);
+                System.out.println(biblioteca.getBooksList());
             } else if (choice == 2 || choice == 3) {
                 System.out.println(biblioteca.printEnterBookNameMessage());
                 scanner = new Scanner(System.in);
@@ -30,6 +31,9 @@ public class BibliotecaApp {
                     System.out.println(biblioteca.printReturnStatus());
                     biblioteca.execute(choice - 1);
                 }
+            }
+            else{
+                biblioteca.execute(choice-1);
             }
             System.out.println("Do you want to continue? (Y/N) ");
             wantToContinue = scanner.next().charAt(0);
