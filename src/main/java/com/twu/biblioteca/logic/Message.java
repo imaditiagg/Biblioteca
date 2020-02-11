@@ -8,5 +8,5 @@ public class Message {
     public static final String UNSUCCESSFUL_CHECKOUT = "Sorry, that book is not available\n";
     public static final String SUCCESSFUL_RETURN = "Thank you for returning the book\n";
     public static final String UNSUCCESSFUL_RETURN = "That is not a valid book to return\n";
-
+    public static final String INVALID_OPTION = "Please select a valid option";
 }

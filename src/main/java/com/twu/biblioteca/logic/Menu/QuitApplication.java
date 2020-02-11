@@ -3,6 +3,7 @@ package com.twu.biblioteca.logic.Menu;
 import com.twu.biblioteca.logic.Library;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.PrintWriter;
 
 //Job: To represent QuitApplication Menu Item
@@ -19,7 +20,9 @@ public class QuitApplication implements MenuItem {
     }
 
     @Override
-    public void action(Library library, BufferedReader bufferedReader, PrintWriter printWriter) {
+    public void action(Library library, BufferedReader bufferedReader, PrintWriter printWriter) throws IOException {
+        bufferedReader.close();
+        printWriter.close();
         System.exit(0);
     }
 }

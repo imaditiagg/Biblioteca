@@ -1,5 +1,6 @@
 package com.twu.biblioteca.logic.Menu;
 
+import com.twu.biblioteca.logic.Exception.InvalidMenuOption;
 import com.twu.biblioteca.logic.Library;
 
 import java.io.BufferedReader;
@@ -31,7 +32,11 @@ public class Menu {
         return menuOutput;
     }
 
-    public void onOptionSelect(int index, Library library, BufferedReader bufferedReader, PrintWriter printWriter) throws IOException {
-        menuItems.get(index).action(library, bufferedReader, printWriter);
+    public void onOptionSelect(int index, Library library, BufferedReader bufferedReader, PrintWriter printWriter) throws IOException, InvalidMenuOption {
+        if (index >= 0 && index < 4) {
+            menuItems.get(index).action(library, bufferedReader, printWriter);
+        } else {
+            throw new InvalidMenuOption();
+        }
     }
 }

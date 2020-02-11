@@ -1,6 +1,7 @@
 package com.twu.biblioteca.consoleUI;
 
 import com.twu.biblioteca.logic.Book;
+import com.twu.biblioteca.logic.Exception.InvalidMenuOption;
 import com.twu.biblioteca.logic.Library;
 import com.twu.biblioteca.logic.Menu.*;
 import com.twu.biblioteca.logic.Message;
@@ -32,7 +33,11 @@ public class BibliotecaApp implements UserInterface {
     }
 
     public void execute(int index, BufferedReader bufferedReader, PrintWriter printWriter) throws IOException {
-        menu.onOptionSelect(index, library, bufferedReader,printWriter);
+        try {
+            menu.onOptionSelect(index, library, bufferedReader, printWriter);
+        } catch (InvalidMenuOption exception) {
+            System.out.println(Message.INVALID_OPTION);
+        }
     }
 
     public static void main(String[] args) throws IOException {
@@ -48,15 +53,15 @@ public class BibliotecaApp implements UserInterface {
         Menu menu = new Menu(menuItems);
 
         Book book = new Book("The Notebook", 1996, "Nicholas Sparks");
-        Book another = new Book("abc", 1980,"def");
+        Book another = new Book("abc", 1980, "def");
         ArrayList<Book> books = new ArrayList<>();
         books.add(book);
         books.add(another);
-        Library library= new Library(books);
+        Library library = new Library(books);
 
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(menu,library);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(menu, library);
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        PrintWriter printWriter= new PrintWriter(System.out,true);
+        PrintWriter printWriter = new PrintWriter(System.out);
 
         System.out.println(bibliotecaApp.welcomeMessage());
         System.out.println("----------MENU-----------");
@@ -65,11 +70,19 @@ public class BibliotecaApp implements UserInterface {
         do {
             System.out.println(bibliotecaApp.displayMenu());
             System.out.println("Enter your choice :  ");
-            int choice = scanner.nextInt();
-            bibliotecaApp.execute(choice-1,bufferedReader,printWriter);
+            String input = scanner.next();
+            try {
+                int choice = Integer.parseInt(input);
+                bibliotecaApp.execute(choice - 1, bufferedReader, printWriter);
+            } catch (NumberFormatException exception) {
+                System.out.println(Message.INVALID_OPTION);
+            }
             System.out.println("Do you want to continue? (Y/N) ");
             wantToContinue = scanner.next().charAt(0);
         }
         while (wantToContinue == 'Y' || wantToContinue == 'y');
+
+        bufferedReader.close();
+        printWriter.close();
     }
 }

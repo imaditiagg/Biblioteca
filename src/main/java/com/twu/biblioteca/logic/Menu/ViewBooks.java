@@ -28,5 +28,6 @@ public class ViewBooks implements MenuItem {
             booksList = booksList + book.display();
         }
         printWriter.print(booksList);
+        printWriter.flush();
     }
 }

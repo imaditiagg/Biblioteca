@@ -23,6 +23,7 @@ public class ReturnBook implements MenuItem {
     @Override
     public void action(Library library, BufferedReader bufferedReader, PrintWriter printWriter) throws IOException {
         printWriter.print(Message.ENTER_BOOK_NAME);
+        printWriter.flush();
         String bookName = bufferedReader.readLine();
         if (library.findInCheckoutBooks(bookName) != null) {
             printWriter.print(Message.SUCCESSFUL_RETURN);
@@ -30,5 +31,6 @@ public class ReturnBook implements MenuItem {
             printWriter.print(Message.UNSUCCESSFUL_RETURN);
         }
         library.returnBook(bookName);
+        printWriter.flush();
     }
 }
