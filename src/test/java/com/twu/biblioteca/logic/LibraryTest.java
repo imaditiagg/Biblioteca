@@ -110,4 +110,17 @@ class LibraryTest {
 
         assertNull(library.findInCheckoutBooks(bookName));
     }
+
+    @Test
+    void shouldNotReturnAnythingWhenBookNotFoundInCheckOutList() {
+        Book bookOne = new Book("Operating Systems", 1999, "Galvin");
+        Book bookTwo = new Book("Data Structures", 1990, "Narsimha karumanchi");
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(bookOne);
+        books.add(bookTwo);
+        library = new Library(books);
+        String bookName = "Harry Potter";
+
+        assertNull(library.findInCheckoutBooks(bookName));
+    }
 }

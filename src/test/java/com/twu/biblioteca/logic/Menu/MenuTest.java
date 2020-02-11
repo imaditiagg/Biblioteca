@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 class MenuTest {
@@ -167,5 +168,15 @@ class MenuTest {
         int actualOutput = menu.noOfMenuItems();
 
         assertEquals(NO_OF_MENU_ITEMS, actualOutput);
+    }
+
+    @Test
+    void shouldNotAllowInvalidMenuOption() {
+        Library libraryMock = mock(Library.class);
+        BufferedReader bufferedReaderMock = mock(BufferedReader.class);
+        PrintWriter printWriterMock = mock(PrintWriter.class);
+        Menu menu = new Menu(menuItems);
+
+        assertThrows(InvalidMenuOption.class, () -> menu.onOptionSelect(7, libraryMock, bufferedReaderMock, printWriterMock));
     }
 }
