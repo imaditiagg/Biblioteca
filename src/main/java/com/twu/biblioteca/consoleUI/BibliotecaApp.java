@@ -52,11 +52,13 @@ public class BibliotecaApp implements UserInterface {
         menuItems.add(menuItemFour);
         Menu menu = new Menu(menuItems);
 
-        Book book = new Book("The Notebook", 1996, "Nicholas Sparks");
-        Book another = new Book("abc", 1980, "def");
+        Book bookOne = new Book("The Notebook", 1996, "Nicholas Sparks");
+        Book bookTwo = new Book("Harry Potter", 2000, "J. K. Rowling");
+        Book bookThree = new Book("Operating System", 1980, "Galvin");
         ArrayList<Book> books = new ArrayList<>();
-        books.add(book);
-        books.add(another);
+        books.add(bookOne);
+        books.add(bookTwo);
+        books.add(bookThree);
         Library library = new Library(books);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(menu, library);
