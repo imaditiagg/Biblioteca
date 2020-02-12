@@ -17,7 +17,7 @@ public class Book {
     }
 
     public String display() {
-        return name + " ; " + author + " ; " + publicationYear + "\n";
+        return String.format(Message.BOOKS_LIST_FORMAT,name,author,publicationYear);
     }
 
     @Override

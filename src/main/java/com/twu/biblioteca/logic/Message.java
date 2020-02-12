@@ -11,4 +11,5 @@ public class Message {
     public static final String INVALID_OPTION = "Please select a valid option\n";
     public static final String NO_BOOK_AVAILABLE = "No Book available in Library currently";
     public static final String BOOKS_LIST = "------ Books List ------";
+    public static final String BOOKS_LIST_FORMAT = "%s ;  %s ;  %s\n";
 }
