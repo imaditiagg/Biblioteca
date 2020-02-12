@@ -51,7 +51,7 @@ class LibraryTest {
     }
 
     @Test
-    void shouldCheckForSuccessfulCheckout() {
+    void shouldCheckForSuccessfulBookCheckout() {
         Book bookOne = new Book("Operating Systems", 1999, "Galvin");
         Book bookTwo = new Book("Data Structures", 1990, "Narsimha karumanchi");
         ArrayList<Book> books = new ArrayList<>();
@@ -133,5 +133,45 @@ class LibraryTest {
         Library library = new Library(null, movies);
 
         assertIterableEquals(library.movies(), movies);
+    }
+
+    @Test
+    void shouldCheckOutMovieFromLibrary() {
+        Movie movie = new Movie("Uri: The Surgical Strike", " Aditya Dhar", 2019, "9");
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(movie);
+        library = new Library(null, movies);
+        String movieName = "Uri: The Surgical Strike";
+
+        library.checkoutMovie(movieName);
+
+        assertFalse(library.movies().contains(movie));
+    }
+
+
+    @Test
+    void shouldCheckForSuccessfulMovieCheckout() {
+        Movie movie = new Movie("Uri: The Surgical Strike", " Aditya Dhar", 2019, "9");
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(movie);
+        library = new Library(null, movies);
+        String movieName = "Uri: The Surgical Strike";
+
+        library.checkoutMovie(movieName);
+
+        assertNotEquals(null, library.findInCheckoutMovies(movieName));
+    }
+
+    @Test
+    void shouldNotCheckoutMovieFromLibrary() {
+        Movie movie = new Movie("Uri: The Surgical Strike", " Aditya Dhar", 2019, "9");
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(movie);
+        library = new Library(null, movies);
+        String movieName = "Uri";
+
+        library.checkoutMovie(movieName);
+
+        assertNull(library.findInCheckoutMovies(movieName));
     }
 }

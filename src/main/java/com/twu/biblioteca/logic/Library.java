@@ -7,6 +7,7 @@ public class Library {
     private final ArrayList<Movie> movies;
     private ArrayList<Book> books;
     private ArrayList<Book> checkoutBooks = new ArrayList<>();
+    private ArrayList<Movie> checkoutMovies = new ArrayList<>();
 
     public Library(ArrayList<Book> books, ArrayList<Movie> movies) {
         this.books = books;
@@ -46,5 +47,24 @@ public class Library {
 
     public ArrayList<Movie> movies() {
         return movies;
+    }
+
+    public void checkoutMovie(String movieName) {
+        for (Movie movie : movies) {
+            if (movie.name().equals(movieName)) {
+                checkoutMovies.add(movie);
+                movies.remove(movie);
+                break;
+            }
+        }
+    }
+
+    public Movie findInCheckoutMovies(String movieName) {
+        for (Movie movie : checkoutMovies) {
+            if (movie.name().equals(movieName)) {
+                return movie;
+            }
+        }
+        return null;
     }
 }

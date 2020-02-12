@@ -13,4 +13,8 @@ public class Movie {
         this.year = year;
         this.rating = rating;
     }
+
+    public String name() {
+        return name;
+    }
 }
