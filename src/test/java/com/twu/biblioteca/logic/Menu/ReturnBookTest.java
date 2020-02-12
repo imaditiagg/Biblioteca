@@ -32,4 +32,16 @@ class ReturnBookTest {
 
         verify(libraryMock, times(1)).returnBook(null);
     }
+
+    @Test
+    void shouldCallFindInCheckoutBooksInLibrary() throws IOException {
+        MenuItem returnBook = new ReturnBook("Return Book");
+        Library libraryMock = mock(Library.class);
+        BufferedReader bufferedReaderMock = mock(BufferedReader.class);
+        PrintWriter printWriterMock = mock(PrintWriter.class);
+
+        returnBook.action(libraryMock, bufferedReaderMock, printWriterMock);
+
+        verify(libraryMock, times(1)).findInCheckoutBooks(null);
+    }
 }
