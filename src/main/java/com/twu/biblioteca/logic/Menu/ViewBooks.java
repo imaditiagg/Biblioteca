@@ -23,14 +23,14 @@ public class ViewBooks implements MenuItem {
 
     @Override
     public void action(Library library, BufferedReader bufferedReader, PrintWriter printWriter) {
-        String booksList = "";
+        StringBuilder booksList = new StringBuilder();
         ArrayList<Book> books = library.books();
         for (Book book : books) {
-            booksList = booksList + book.display();
+            booksList.append(book.display());
         }
         if (booksList.length() != 0) {
             printWriter.println(Message.BOOKS_LIST);
-            printWriter.println(booksList);
+            printWriter.println(booksList.toString());
         } else {
             printWriter.println(Message.NO_BOOK_AVAILABLE);
         }
