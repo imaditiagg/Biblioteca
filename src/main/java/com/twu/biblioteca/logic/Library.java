@@ -67,4 +67,12 @@ public class Library {
         }
         return null;
     }
+
+    public void returnMovie(String movieName) {
+        Movie movie = findInCheckoutMovies(movieName);
+        if (movie != null) {
+            checkoutMovies.remove(movie);
+            movies.add(movie);
+        }
+    }
 }

@@ -174,4 +174,31 @@ class LibraryTest {
 
         assertNull(library.findInCheckoutMovies(movieName));
     }
+
+    @Test
+    void shouldReturnMovieToTheLibrary() {
+        Movie movie = new Movie("Uri: The Surgical Strike", " Aditya Dhar", 2019, "9");
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(movie);
+        library = new Library(null, movies);
+        String movieName = "Uri: The Surgical Strike";
+        library.checkoutMovie(movieName);
+
+        library.returnMovie(movieName);
+
+        assertTrue(library.movies().contains(movie));
+    }
+
+    @Test
+    void shouldNotAllowToReturnAMovieThatIsNotCheckoutYet() {
+        Movie movie = new Movie("Uri: The Surgical Strike", " Aditya Dhar", 2019, "9");
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(movie);
+        library = new Library(null, movies);
+        String movieName = "Uri: The Surgical Strike";
+
+        library.returnMovie(movieName);
+
+        assertNull(library.findInCheckoutMovies(movieName));
+    }
 }
