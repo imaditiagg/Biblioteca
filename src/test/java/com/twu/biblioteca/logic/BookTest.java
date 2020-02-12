@@ -46,6 +46,7 @@ class BookTest {
     void shouldNotEquateBookWithDifferentKindOfObject() {
         Book bookOne = new Book("Operating system", 1998, "Galvin");
         String string = " ";
+
         assertNotEquals(bookOne, string);
     }
 
