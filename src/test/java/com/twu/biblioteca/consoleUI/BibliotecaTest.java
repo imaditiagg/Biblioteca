@@ -7,9 +7,7 @@ import com.twu.biblioteca.logic.Menu.Menu;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -52,12 +50,10 @@ class BibliotecaTest {
     void shouldCallOnOptionSelectOfMenu() throws IOException, InvalidMenuOption {
         Library libraryMock = mock(Library.class);
         Menu menuMock = mock(Menu.class);
-        BufferedReader bufferedReaderMock = mock(BufferedReader.class);
-        PrintWriter printWriterMock = mock(PrintWriter.class);
         BibliotecaApp biblioteca = new BibliotecaApp(menuMock, libraryMock);
 
-        biblioteca.execute(0, bufferedReaderMock, printWriterMock);
+        biblioteca.execute(0);
 
-        verify(menuMock, times(1)).onOptionSelect(0, libraryMock, bufferedReaderMock, printWriterMock);
+        verify(menuMock, times(1)).onOptionSelect(0, libraryMock);
     }
 }

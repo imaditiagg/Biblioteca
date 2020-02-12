@@ -16,6 +16,8 @@ import java.util.ArrayList;
 public class BibliotecaApp {
     private final Library library;
     private final Menu menu;
+    private static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+    private static PrintWriter printWriter = new PrintWriter(System.out, true);
 
     public BibliotecaApp(Menu menu, Library library) {
         this.library = library;
@@ -30,9 +32,9 @@ public class BibliotecaApp {
         return menu.display();
     }
 
-    public void execute(int index, BufferedReader bufferedReader, PrintWriter printWriter) throws IOException {
+    public void execute(int index) throws IOException {
         try {
-            menu.onOptionSelect(index, library, bufferedReader, printWriter);
+            menu.onOptionSelect(index, library);
         } catch (InvalidMenuOption exception) {
             printWriter.println(Message.INVALID_OPTION);
         }
@@ -41,21 +43,18 @@ public class BibliotecaApp {
     public static void main(String[] args) throws IOException {
         Menu menu = buildMenu();
         Library library = buildLibrary();
-
         BibliotecaApp bibliotecaApp = new BibliotecaApp(menu, library);
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        PrintWriter printWriter = new PrintWriter(System.out, true);
 
         printWriter.println(bibliotecaApp.welcomeMessage());
-        printWriter.println(Message.MENU_HEADER);
         char wantToContinue;
         do {
+            printWriter.println(Message.MENU_HEADER);
             printWriter.println(bibliotecaApp.displayMenu());
             printWriter.println(Message.ENTER_CHOICE);
             String input = bufferedReader.readLine();
             try {
                 int choice = Integer.parseInt(input);
-                bibliotecaApp.execute(choice - 1, bufferedReader, printWriter);
+                bibliotecaApp.execute(choice - 1);
             } catch (NumberFormatException exception) {
                 printWriter.println(Message.INVALID_OPTION);
             }
@@ -80,10 +79,10 @@ public class BibliotecaApp {
     }
 
     private static Menu buildMenu() {
-        MenuItem menuItemOne = new ViewBooks("View Books");
-        MenuItem menuItemTwo = new CheckoutBook("Checkout Book");
-        MenuItem menuItemThree = new ReturnBook("Return Book");
-        MenuItem menuItemFour = new QuitApplication("Quit Application");
+        MenuItem menuItemOne = new ViewBooks("View Books", bufferedReader, printWriter);
+        MenuItem menuItemTwo = new CheckoutBook("Checkout Book", bufferedReader, printWriter);
+        MenuItem menuItemThree = new ReturnBook("Return Book", bufferedReader, printWriter);
+        MenuItem menuItemFour = new QuitApplication("Quit Application", bufferedReader, printWriter);
         ArrayList<MenuItem> menuItems = new ArrayList<>();
         menuItems.add(menuItemOne);
         menuItems.add(menuItemTwo);

@@ -10,9 +10,13 @@ import java.io.PrintWriter;
 //Job: To Represent ReturnBook Menu Item
 public class ReturnBook implements MenuItem {
     private final String description;
+    private final BufferedReader bufferedReader;
+    private final PrintWriter printWriter;
 
-    public ReturnBook(String description) {
+    public ReturnBook(String description, BufferedReader bufferedReader, PrintWriter printWriter) {
         this.description = description;
+        this.bufferedReader = bufferedReader;
+        this.printWriter = printWriter;
     }
 
     @Override
@@ -21,7 +25,7 @@ public class ReturnBook implements MenuItem {
     }
 
     @Override
-    public void action(Library library, BufferedReader bufferedReader, PrintWriter printWriter) throws IOException {
+    public void action(Library library) throws IOException {
         printWriter.println(Message.ENTER_BOOK_NAME);
         String bookName = bufferedReader.readLine();
         if (library.findInCheckoutBooks(bookName) != null) {

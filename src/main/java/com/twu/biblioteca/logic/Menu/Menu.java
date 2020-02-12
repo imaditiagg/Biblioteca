@@ -3,9 +3,7 @@ package com.twu.biblioteca.logic.Menu;
 import com.twu.biblioteca.logic.Exception.InvalidMenuOption;
 import com.twu.biblioteca.logic.Library;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 //Job: To Represent Menu
@@ -28,11 +26,11 @@ public class Menu {
         return menuOutput;
     }
 
-    public void onOptionSelect(int index, Library library, BufferedReader bufferedReader, PrintWriter printWriter) throws IOException, InvalidMenuOption {
+    public void onOptionSelect(int index, Library library) throws InvalidMenuOption, IOException {
         if (index < 0 || index >= noOfMenuItems()) {
             throw new InvalidMenuOption();
         }
-        menuItems.get(index).action(library, bufferedReader, printWriter);
+        menuItems.get(index).action(library);
     }
 
     private int noOfMenuItems() {

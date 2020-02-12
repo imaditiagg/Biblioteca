@@ -1,8 +1,8 @@
 package com.twu.biblioteca.logic.Menu;
 
+import com.twu.biblioteca.constants.Message;
 import com.twu.biblioteca.logic.Book;
 import com.twu.biblioteca.logic.Library;
-import com.twu.biblioteca.constants.Message;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
@@ -11,10 +11,15 @@ import java.util.ArrayList;
 //Job: To Represent ViewBooks Menu Item
 public class ViewBooks implements MenuItem {
     private final String description;
+    private final BufferedReader bufferedReader;
+    private final PrintWriter printWriter;
 
-    public ViewBooks(String description) {
+    public ViewBooks(String description, BufferedReader bufferedReader, PrintWriter printWriter) {
         this.description = description;
+        this.bufferedReader = bufferedReader;
+        this.printWriter = printWriter;
     }
+
 
     @Override
     public String description() {
@@ -22,7 +27,7 @@ public class ViewBooks implements MenuItem {
     }
 
     @Override
-    public void action(Library library, BufferedReader bufferedReader, PrintWriter printWriter) {
+    public void action(Library library) {
         StringBuilder booksList = new StringBuilder();
         ArrayList<Book> books = library.books();
         for (Book book : books) {
