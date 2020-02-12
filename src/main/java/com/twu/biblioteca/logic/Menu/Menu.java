@@ -16,10 +16,6 @@ public class Menu {
         this.menuItems = menuItems;
     }
 
-    public int noOfMenuItems() {
-        return menuItems.size();
-    }
-
     public StringBuilder display() {
         StringBuilder menuOutput = new StringBuilder();
         int index = 1;
@@ -33,10 +29,13 @@ public class Menu {
     }
 
     public void onOptionSelect(int index, Library library, BufferedReader bufferedReader, PrintWriter printWriter) throws IOException, InvalidMenuOption {
-        if (index >= 0 && index < 4) {
-            menuItems.get(index).action(library, bufferedReader, printWriter);
-        } else {
+        if (index < 0 || index >= noOfMenuItems()) {
             throw new InvalidMenuOption();
         }
+        menuItems.get(index).action(library, bufferedReader, printWriter);
+    }
+
+    private int noOfMenuItems() {
+        return menuItems.size();
     }
 }

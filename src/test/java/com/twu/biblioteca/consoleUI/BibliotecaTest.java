@@ -1,9 +1,9 @@
 package com.twu.biblioteca.consoleUI;
 
+import com.twu.biblioteca.constants.Message;
 import com.twu.biblioteca.logic.Exception.InvalidMenuOption;
 import com.twu.biblioteca.logic.Library;
 import com.twu.biblioteca.logic.Menu.Menu;
-import com.twu.biblioteca.logic.Message;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

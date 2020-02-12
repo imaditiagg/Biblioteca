@@ -16,31 +16,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 class MenuTest {
-
-    public static final int NO_OF_MENU_ITEMS = 4;
     Menu menu;
     ArrayList<MenuItem> menuItems;
     BufferedReader bufferedReaderMock;
     PrintWriter printWriterMock;
     BibliotecaApp bibliotecaAppMock;
     Library libraryMock;
-
-    @Test
-    void shouldAddAllMenuItemsToMenu() {
-        MenuItem menuItemOne = new ViewBooks("View Books");
-        MenuItem menuItemTwo = new CheckoutBook("Checkout Book");
-        MenuItem menuItemThree = new ReturnBook("Return Book");
-        MenuItem menuItemFour = new QuitApplication("Quit Application");
-        menuItems = new ArrayList<>();
-        menuItems.add(menuItemOne);
-        menuItems.add(menuItemTwo);
-        menuItems.add(menuItemThree);
-        menuItems.add(menuItemFour);
-
-        menu = new Menu(menuItems);
-
-        assertEquals(NO_OF_MENU_ITEMS, menu.noOfMenuItems());
-    }
 
     @Test
     void shouldDisplayMenuItems() {
@@ -150,24 +131,6 @@ class MenuTest {
         menu.onOptionSelect(3, libraryMock, bufferedReaderMock, printWriterMock);
 
         verify(quitApplicationMock, times(1)).action(libraryMock, bufferedReaderMock, printWriterMock);
-    }
-
-    @Test
-    void shouldReturnThatThereAreFourMenuItemsCurrently() {
-        MenuItem menuItemOne = new ViewBooks("View Books");
-        MenuItem menuItemTwo = new CheckoutBook("Checkout Book");
-        MenuItem menuItemThree = new ReturnBook("Return Book");
-        MenuItem menuItemFour = new QuitApplication("Quit Application");
-        menuItems = new ArrayList<>();
-        menuItems.add(menuItemOne);
-        menuItems.add(menuItemTwo);
-        menuItems.add(menuItemThree);
-        menuItems.add(menuItemFour);
-        menu = new Menu(menuItems);
-
-        int actualOutput = menu.noOfMenuItems();
-
-        assertEquals(NO_OF_MENU_ITEMS, actualOutput);
     }
 
     @Test

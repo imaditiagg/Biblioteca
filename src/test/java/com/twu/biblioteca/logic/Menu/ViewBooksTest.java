@@ -1,5 +1,6 @@
 package com.twu.biblioteca.logic.Menu;
 
+import com.twu.biblioteca.constants.Message;
 import com.twu.biblioteca.logic.Book;
 import com.twu.biblioteca.logic.Library;
 import org.junit.jupiter.api.Test;
@@ -29,8 +30,8 @@ class ViewBooksTest {
 
         viewBooks.action(libraryMock, bufferedReaderMock, printWriterMock);
 
-        verify(bookMock1, times(1)).display();
-        verify(bookMock2, times(1)).display();
+        verify(bookMock1, times(1)).display(Message.BOOKS_LIST_FORMAT);
+        verify(bookMock2, times(1)).display(Message.BOOKS_LIST_FORMAT);
     }
 
     @Test

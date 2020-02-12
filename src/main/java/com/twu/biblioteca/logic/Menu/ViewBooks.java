@@ -2,7 +2,7 @@ package com.twu.biblioteca.logic.Menu;
 
 import com.twu.biblioteca.logic.Book;
 import com.twu.biblioteca.logic.Library;
-import com.twu.biblioteca.logic.Message;
+import com.twu.biblioteca.constants.Message;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
@@ -26,7 +26,7 @@ public class ViewBooks implements MenuItem {
         StringBuilder booksList = new StringBuilder();
         ArrayList<Book> books = library.books();
         for (Book book : books) {
-            booksList.append(book.display());
+            booksList.append(book.display(Message.BOOKS_LIST_FORMAT));
         }
         if (booksList.length() != 0) {
             printWriter.println(Message.BOOKS_LIST);

@@ -1,7 +1,7 @@
 package com.twu.biblioteca.logic.Menu;
 
+import com.twu.biblioteca.constants.Message;
 import com.twu.biblioteca.logic.Library;
-import com.twu.biblioteca.logic.Message;
 
 import java.io.BufferedReader;
 import java.io.IOException;
