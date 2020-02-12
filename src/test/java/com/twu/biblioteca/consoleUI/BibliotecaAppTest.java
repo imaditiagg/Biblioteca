@@ -12,7 +12,7 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-class BibliotecaTest {
+class BibliotecaAppTest {
     Library libraryMock;
     Menu menuMock;
 
