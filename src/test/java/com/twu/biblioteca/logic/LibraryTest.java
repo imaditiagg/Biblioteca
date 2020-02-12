@@ -126,7 +126,7 @@ class LibraryTest {
 
     @Test
     void shouldGetMoviesFromLibrary() {
-        Movie movieOne = new Movie();
+        Movie movieOne = new Movie("Uri: The Surgical Strike", " Aditya Dhar", 2019, "9");
         ArrayList<Movie> movies = new ArrayList<>();
         movies.add(movieOne);
 
