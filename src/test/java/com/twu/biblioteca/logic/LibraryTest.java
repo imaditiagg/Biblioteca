@@ -14,7 +14,7 @@ class LibraryTest {
         Book bookOne = new Book("Operating Systems", 1990, "Galvin");
         ArrayList<Book> books = new ArrayList<>();
         books.add(bookOne);
-        library = new Library(books);
+        library = new Library(books, null);
 
         ArrayList<Book> actualBooks = library.books();
 
@@ -28,7 +28,7 @@ class LibraryTest {
         ArrayList<Book> books = new ArrayList<>();
         books.add(bookOne);
         books.add(bookTwo);
-        library = new Library(books);
+        library = new Library(books, null);
 
         ArrayList<Book> actualBooks = library.books();
 
@@ -42,7 +42,7 @@ class LibraryTest {
         ArrayList<Book> books = new ArrayList<>();
         books.add(bookOne);
         books.add(bookTwo);
-        library = new Library(books);
+        library = new Library(books, null);
         String bookName = "Operating Systems";
 
         library.checkoutBook(bookName);
@@ -57,7 +57,7 @@ class LibraryTest {
         ArrayList<Book> books = new ArrayList<>();
         books.add(bookOne);
         books.add(bookTwo);
-        library = new Library(books);
+        library = new Library(books, null);
         String bookName = "Operating Systems";
 
         library.checkoutBook(bookName);
@@ -72,7 +72,7 @@ class LibraryTest {
         ArrayList<Book> books = new ArrayList<>();
         books.add(bookOne);
         books.add(bookTwo);
-        library = new Library(books);
+        library = new Library(books, null);
         String bookName = "Operating";
 
         library.checkoutBook(bookName);
@@ -87,7 +87,7 @@ class LibraryTest {
         ArrayList<Book> books = new ArrayList<>();
         books.add(bookOne);
         books.add(bookTwo);
-        library = new Library(books);
+        library = new Library(books, null);
         String bookName = "Operating Systems";
         library.checkoutBook(bookName);
 
@@ -103,7 +103,7 @@ class LibraryTest {
         ArrayList<Book> books = new ArrayList<>();
         books.add(bookOne);
         books.add(bookTwo);
-        library = new Library(books);
+        library = new Library(books, null);
         String bookName = "Operating Systems";
 
         library.returnBook(bookName);
@@ -118,9 +118,20 @@ class LibraryTest {
         ArrayList<Book> books = new ArrayList<>();
         books.add(bookOne);
         books.add(bookTwo);
-        library = new Library(books);
+        library = new Library(books, null);
         String bookName = "Harry Potter";
 
         assertNull(library.findInCheckoutBooks(bookName));
+    }
+
+    @Test
+    void shouldGetMoviesFromLibrary() {
+        Movie movieOne = new Movie();
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(movieOne);
+
+        Library library = new Library(null, movies);
+
+        assertIterableEquals(library.movies(), movies);
     }
 }

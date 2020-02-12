@@ -75,7 +75,7 @@ public class BibliotecaApp {
         books.add(bookOne);
         books.add(bookTwo);
         books.add(bookThree);
-        return new Library(books);
+        return new Library(books, null);
     }
 
     private static Menu buildMenu() {

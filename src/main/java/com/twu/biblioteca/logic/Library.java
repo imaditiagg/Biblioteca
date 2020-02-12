@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 //Job: To Represent Library
 public class Library {
+    private final ArrayList<Movie> movies;
     private ArrayList<Book> books;
     private ArrayList<Book> checkoutBooks = new ArrayList<>();
 
-    public Library(ArrayList<Book> books) {
+    public Library(ArrayList<Book> books, ArrayList<Movie> movies) {
         this.books = books;
+        this.movies = movies;
     }
 
     public ArrayList<Book> books() {
@@ -40,5 +42,9 @@ public class Library {
             checkoutBooks.remove(book);
             books.add(book);
         }
+    }
+
+    public ArrayList<Movie> movies() {
+        return movies;
     }
 }
