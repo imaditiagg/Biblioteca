@@ -201,4 +201,15 @@ class LibraryTest {
 
         assertNull(library.findInCheckoutMovies(movieName));
     }
+
+    @Test
+    void shouldNotReturnAnythingWhenMovieNotFoundInCheckoutList(){
+        Movie movie = new Movie("Uri: The Surgical Strike", " Aditya Dhar", 2019, "9");
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(movie);
+        library = new Library(null, movies);
+        String movieName = "Uri: The Surgical Strike";
+
+        assertNull(library.findInCheckoutMovies(movieName));
+    }
 }
