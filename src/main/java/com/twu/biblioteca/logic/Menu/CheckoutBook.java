@@ -8,10 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 //Job: To Represent CheckoutBook Menu Item
-public class CheckoutBook implements MenuItem {
-    private final String description;
-    private final BufferedReader bufferedReader;
-    private final PrintWriter printWriter;
+public class CheckoutBook extends MenuItem {
 
     public CheckoutBook(String description, BufferedReader bufferedReader, PrintWriter printWriter) {
         this.description = description;

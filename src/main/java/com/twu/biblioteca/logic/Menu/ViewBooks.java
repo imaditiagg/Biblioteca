@@ -9,10 +9,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 //Job: To Represent ViewBooks Menu Item
-public class ViewBooks implements MenuItem {
-    private final String description;
-    private final BufferedReader bufferedReader;
-    private final PrintWriter printWriter;
+public class ViewBooks extends MenuItem {
 
     public ViewBooks(String description, BufferedReader bufferedReader, PrintWriter printWriter) {
         this.description = description;

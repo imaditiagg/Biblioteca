@@ -7,10 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 //Job: To represent QuitApplication Menu Item
-public class QuitApplication implements MenuItem {
-    private final String description;
-    private final BufferedReader bufferedReader;
-    private final PrintWriter printWriter;
+public class QuitApplication extends MenuItem {
 
     public QuitApplication(String description, BufferedReader bufferedReader, PrintWriter printWriter) {
         this.description = description;

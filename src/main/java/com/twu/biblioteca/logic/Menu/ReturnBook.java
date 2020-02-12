@@ -8,10 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 //Job: To Represent ReturnBook Menu Item
-public class ReturnBook implements MenuItem {
-    private final String description;
-    private final BufferedReader bufferedReader;
-    private final PrintWriter printWriter;
+public class ReturnBook extends MenuItem {
 
     public ReturnBook(String description, BufferedReader bufferedReader, PrintWriter printWriter) {
         this.description = description;

@@ -2,11 +2,17 @@ package com.twu.biblioteca.logic.Menu;
 
 import com.twu.biblioteca.logic.Library;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 // Represent MenuItem
-public interface MenuItem {
-    String description();
+public abstract class MenuItem {
+    protected String description;
+    protected BufferedReader bufferedReader;
+    protected PrintWriter printWriter;
 
-    void action(Library library) throws IOException;
+    abstract String description();
+
+    abstract void action(Library library) throws IOException;
 }
