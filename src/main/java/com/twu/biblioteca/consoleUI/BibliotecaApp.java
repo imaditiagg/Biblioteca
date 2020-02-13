@@ -5,6 +5,7 @@ import com.twu.biblioteca.logic.Book;
 import com.twu.biblioteca.logic.Exception.InvalidMenuOption;
 import com.twu.biblioteca.logic.Library;
 import com.twu.biblioteca.logic.Menu.*;
+import com.twu.biblioteca.logic.Movie;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -71,11 +72,14 @@ public class BibliotecaApp {
         Book bookOne = new Book("The Notebook", 1996, "Nicholas Sparks");
         Book bookTwo = new Book("Harry Potter", 2000, "J. K. Rowling");
         Book bookThree = new Book("Operating System", 1980, "Galvin");
+        Movie movie = new Movie("Uri: The Surgical Strike", " Aditya Dhar", 2019, "9");
         ArrayList<Book> books = new ArrayList<>();
+        ArrayList<Movie> movies = new ArrayList<>();
         books.add(bookOne);
         books.add(bookTwo);
         books.add(bookThree);
-        return new Library(books, null);
+        movies.add(movie);
+        return new Library(books, movies);
     }
 
     private static Menu buildMenu() {
@@ -83,11 +87,17 @@ public class BibliotecaApp {
         MenuItem menuItemTwo = new CheckoutBook("Checkout Book", bufferedReader, printWriter);
         MenuItem menuItemThree = new ReturnBook("Return Book", bufferedReader, printWriter);
         MenuItem menuItemFour = new QuitApplication("Quit Application", bufferedReader, printWriter);
+        MenuItem menuItemFive = new ViewMovies("View Movies", bufferedReader, printWriter);
+        MenuItem menuItemSix = new CheckoutMovie("Checkout Movie", bufferedReader, printWriter);
+        MenuItem menuItemSeven = new ReturnMovie("Return Movie", bufferedReader, printWriter);
         ArrayList<MenuItem> menuItems = new ArrayList<>();
         menuItems.add(menuItemOne);
         menuItems.add(menuItemTwo);
         menuItems.add(menuItemThree);
         menuItems.add(menuItemFour);
+        menuItems.add(menuItemFive);
+        menuItems.add(menuItemSix);
+        menuItems.add(menuItemSeven);
         return new Menu(menuItems);
     }
 }

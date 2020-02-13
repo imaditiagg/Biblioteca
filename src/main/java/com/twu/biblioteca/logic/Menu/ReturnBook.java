@@ -26,9 +26,9 @@ public class ReturnBook extends MenuItem {
         printWriter.println(Message.ENTER_BOOK_NAME);
         String bookName = bufferedReader.readLine();
         if (library.findInCheckoutBooks(bookName) != null) {
-            printWriter.println(Message.SUCCESSFUL_RETURN);
+            printWriter.println(Message.SUCCESSFUL_RETURN_BOOK);
         } else {
-            printWriter.println(Message.UNSUCCESSFUL_RETURN);
+            printWriter.println(Message.UNSUCCESSFUL_RETURN_BOOK);
         }
         library.returnBook(bookName);
     }

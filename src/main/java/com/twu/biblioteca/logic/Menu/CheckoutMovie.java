@@ -26,9 +26,9 @@ public class CheckoutMovie extends MenuItem {
         String movieName = bufferedReader.readLine();
         library.checkoutMovie(movieName);
         if (library.findInCheckoutMovies(movieName) != null) {
-            printWriter.println(Message.SUCCESSFUL_CHECKOUT);
+            printWriter.println(Message.SUCCESSFUL_CHECKOUT_MOVIE);
         } else {
-            printWriter.println(Message.UNSUCCESSFUL_CHECKOUT);
+            printWriter.println(Message.UNSUCCESSFUL_CHECKOUT_MOVIE);
         }
     }
 }

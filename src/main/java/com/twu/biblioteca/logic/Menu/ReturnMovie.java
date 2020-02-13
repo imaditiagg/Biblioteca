@@ -7,7 +7,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class ReturnMovie extends MenuItem{
+public class ReturnMovie extends MenuItem {
 
     public ReturnMovie(String description, BufferedReader bufferedReader, PrintWriter printWriter) {
         this.description = description;
@@ -25,9 +25,9 @@ public class ReturnMovie extends MenuItem{
         printWriter.println(Message.ENTER_MOVIE_NAME);
         String movieName = bufferedReader.readLine();
         if (library.findInCheckoutMovies(movieName) != null) {
-            printWriter.println(Message.SUCCESSFUL_RETURN);
+            printWriter.println(Message.SUCCESSFUL_RETURN_MOVIE);
         } else {
-            printWriter.println(Message.UNSUCCESSFUL_RETURN);
+            printWriter.println(Message.UNSUCCESSFUL_RETURN_MOVIE);
         }
         library.returnMovie(movieName);
     }
