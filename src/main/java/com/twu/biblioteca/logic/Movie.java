@@ -17,4 +17,9 @@ public class Movie {
     public String name() {
         return name;
     }
+
+    public String display(String moviesListFormat) {
+        return String.format(moviesListFormat, name, director, year, rating);
+    }
+
 }

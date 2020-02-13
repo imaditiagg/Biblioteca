@@ -15,4 +15,7 @@ public class Message {
     public static final String MENU_HEADER = "----------MENU-----------";
     public static final String ENTER_CHOICE = "Enter your choice :  ";
     public static final String WANT_TO_CONTINUE = "Do you want to continue? (Y/N) ";
+    public static final String MOVIES_LIST_FORMAT = "%s ;  %s ;  %d ;  %s\n";
+    public static final String MOVIES_LIST = "------ Movies List ------";
+    public static final String NO_MOVIE_AVAILABLE = "No Movie available in Library currently";
 }

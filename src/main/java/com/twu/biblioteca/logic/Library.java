@@ -26,6 +26,13 @@ public class Library {
                 break;
             }
         }
+//        Optional<Book> book = books.stream()
+//                .filter(b -> bookName.equals(b.name()))
+//                .findFirst();
+//        if(book.isPresent()) {
+//            checkoutBooks.add(book.get());
+//            books.remove(book.get());
+//        }
     }
 
     public Book findInCheckoutBooks(String bookName) {
