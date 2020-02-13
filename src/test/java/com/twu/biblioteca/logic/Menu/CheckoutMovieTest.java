@@ -22,7 +22,7 @@ class CheckoutMovieTest {
     }
 
     @Test
-    void shouldReturnCheckoutBookDescription() {
+    void shouldReturnCheckoutMovieDescription() {
         MenuItem checkoutMovie = new CheckoutMovie("Checkout Movie", bufferedReader, printWriter);
         String expectedOutput = "Checkout Movie";
 
