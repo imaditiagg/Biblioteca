@@ -18,4 +18,5 @@ public class Message {
     public static final String MOVIES_LIST_FORMAT = "%s ;  %s ;  %d ;  %s\n";
     public static final String MOVIES_LIST = "------ Movies List ------";
     public static final String NO_MOVIE_AVAILABLE = "No Movie available in Library currently";
+    public static final String ENTER_MOVIE_NAME = "Enter Movie Name: ";
 }
