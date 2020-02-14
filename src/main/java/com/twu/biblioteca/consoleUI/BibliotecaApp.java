@@ -53,16 +53,18 @@ public class BibliotecaApp {
         Menu menu = buildMenu();
         Library library = buildLibrary();
         ArrayList<Customer> customers = new ArrayList<>();
-        customers.add(new Customer("101-2020", "12345", false));
+        customers.add(new Customer("101-2020", "12345", false, "Aditi",
+                "aditi.aggarwal@thoughtworks.com", "8375939006"));
         library.addCustomers(customers);
-        library.addLibrarian(new Librarian("202-2020", "12345", false));
+        library.addLibrarian(new Librarian("202-2020", "12345", false, "abc",
+                "abc@gmail.com", "9999999999"));
         BibliotecaApp bibliotecaApp = new BibliotecaApp(menu, library);
 
         printWriter.println(bibliotecaApp.welcomeMessage());
         char wantToContinue;
         do {
             printWriter.println(Message.MENU_HEADER);
-            currentUser = library.checkLoggedInUser();
+            currentUser = library.loggedInUser();
             if (currentUser == null) {
                 printWriter.println(bibliotecaApp.displayDefaultMenu());
             } else if (currentUser.getClass() == Customer.class) {
@@ -110,9 +112,12 @@ public class BibliotecaApp {
         MenuItem menuItemSix = new CheckoutMovie("Checkout Movie", bufferedReader, printWriter);
         MenuItem menuItemSeven = new ReturnMovie("Return Movie", bufferedReader, printWriter);
         MenuItem menuItemEight = new Login("Login", bufferedReader, printWriter);
+        MenuItem menuItemNine = new ViewCheckoutDetails("View Checkout details of users", bufferedReader, printWriter);
+        MenuItem menuItemTen = new ViewProfile("View Profile", bufferedReader, printWriter);
+        MenuItem menuItemEleven = new Logout("Logout",bufferedReader,printWriter);
         ArrayList<MenuItem> defaultMenuItems = new ArrayList<>();
         ArrayList<MenuItem> customerMenuItems = new ArrayList<>();
-        ArrayList<MenuItem> userMenuItems = new ArrayList<>();
+        ArrayList<MenuItem> librarianMenuItems = new ArrayList<>();
         defaultMenuItems.add(menuItemOne);
         defaultMenuItems.add(menuItemFive);
         defaultMenuItems.add(menuItemEight);
@@ -124,16 +129,20 @@ public class BibliotecaApp {
         customerMenuItems.add(menuItemSix);
         customerMenuItems.add(menuItemSeven);
         customerMenuItems.add(menuItemFour);
+        customerMenuItems.add(menuItemTen);
+        customerMenuItems.add(menuItemEleven);
 
-        userMenuItems.add(menuItemOne);
-        userMenuItems.add(menuItemTwo);
-        userMenuItems.add(menuItemThree);
-        userMenuItems.add(menuItemFive);
-        userMenuItems.add(menuItemSix);
-        userMenuItems.add(menuItemSeven);
-        userMenuItems.add(menuItemFour);
+        librarianMenuItems.add(menuItemOne);
+        librarianMenuItems.add(menuItemTwo);
+        librarianMenuItems.add(menuItemThree);
+        librarianMenuItems.add(menuItemFive);
+        librarianMenuItems.add(menuItemSix);
+        librarianMenuItems.add(menuItemSeven);
+        librarianMenuItems.add(menuItemFour);
+        librarianMenuItems.add(menuItemNine);
+        librarianMenuItems.add(menuItemTen);
+        librarianMenuItems.add(menuItemEleven);
 
-
-        return new Menu(defaultMenuItems, customerMenuItems, userMenuItems);
+        return new Menu(defaultMenuItems, customerMenuItems, librarianMenuItems);
     }
 }

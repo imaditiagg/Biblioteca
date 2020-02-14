@@ -203,7 +203,7 @@ class LibraryTest {
     }
 
     @Test
-    void shouldNotReturnAnythingWhenMovieNotFoundInCheckoutList(){
+    void shouldNotReturnAnythingWhenMovieNotFoundInCheckoutList() {
         Movie movie = new Movie("Uri: The Surgical Strike", " Aditya Dhar", 2019, "9");
         ArrayList<Movie> movies = new ArrayList<>();
         movies.add(movie);

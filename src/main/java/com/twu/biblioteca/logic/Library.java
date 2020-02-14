@@ -1,5 +1,7 @@
 package com.twu.biblioteca.logic;
 
+import com.twu.biblioteca.constants.Message;
+
 import java.util.ArrayList;
 
 //Job: To Represent Library
@@ -30,8 +32,11 @@ public class Library {
 
     public void checkoutBook(String bookName) {
         for (Book book : books) {
-            if (book.name().equals(bookName)) {
+            if (bookName.equals(book.name())) {
                 checkoutBooks.add(book);
+                User user = loggedInUser();
+                if (user != null)
+                    user.checkoutBook(book);
                 books.remove(book);
                 break;
             }
@@ -51,6 +56,9 @@ public class Library {
         Book book = findInCheckoutBooks(bookName);
         if (book != null) {
             checkoutBooks.remove(book);
+            User user = loggedInUser();
+            if (user != null)
+                user.returnBook(book);
             books.add(book);
         }
     }
@@ -63,6 +71,9 @@ public class Library {
         for (Movie movie : movies) {
             if (movie.name().equals(movieName)) {
                 checkoutMovies.add(movie);
+                User user = loggedInUser();
+                if (user != null)
+                    user.checkoutMovie(movie);
                 movies.remove(movie);
                 break;
             }
@@ -82,6 +93,9 @@ public class Library {
         Movie movie = findInCheckoutMovies(movieName);
         if (movie != null) {
             checkoutMovies.remove(movie);
+            User user = loggedInUser();
+            if (user != null)
+                user.returnMovie(movie);
             movies.add(movie);
         }
     }
@@ -99,8 +113,8 @@ public class Library {
         return null;
     }
 
-    public User checkLoggedInUser() {
-        if (librarian.loggedIn) return librarian;
+    public User loggedInUser() {
+        if (librarian != null && librarian.loggedIn) return librarian;
         else {
             for (Customer customer : customers) {
                 if (customer.loggedIn) {
@@ -109,5 +123,34 @@ public class Library {
             }
         }
         return null;
+    }
+
+    public StringBuilder obtainCheckoutDetails() {
+        StringBuilder result = new StringBuilder();
+        for (Customer customer : customers) {
+            if (customer.checkedOutBooks.size() > 0) {
+                result.append(customer.name);
+                result.append("\n").append(Message.CHECKOUT_BOOKS).append("\n");
+                for (Book book : customer.checkedOutBooks) {
+                    result.append(book.name()).append("\n");
+                }
+            }
+            if (customer.checkedOutMovies.size() > 0) {
+                result.append(customer.name);
+                result.append("\n").append(Message.CHECKOUT_MOVIES).append("\n");
+                for (Movie movie : customer.checkedOutMovies) {
+                    result.append(movie.name()).append("\n");
+                }
+            }
+        }
+        result.append("\n");
+        return result;
+    }
+
+    public StringBuilder obtainUserDetails() {
+        User user = loggedInUser();
+        StringBuilder result = new StringBuilder();
+        result.append(user.name).append("  ; ").append(user.email).append(" ; ").append(user.contactNo);
+        return result;
     }
 }
