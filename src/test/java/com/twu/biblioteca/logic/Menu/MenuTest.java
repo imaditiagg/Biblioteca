@@ -35,7 +35,7 @@ class MenuTest {
     }
 
     @Test
-    void shouldDisplayMenuItems() {
+    void shouldDisplayDefaultMenuItems() {
         MenuItem menuItemOne = new ViewBooks("View Books", bufferedReader, printWriter);
         MenuItem menuItemTwo = new CheckoutBook("Checkout Book", bufferedReader, printWriter);
         MenuItem menuItemThree = new ReturnBook("Return Book", bufferedReader, printWriter);
@@ -49,6 +49,81 @@ class MenuTest {
         String expectedOutput = "1.  View Books" + "\n" + "2.  Checkout Book" + "\n" + "3.  Return Book"
                 + "\n" + "4.  Quit Application" + "\n";
         String actualOutput = menu.display().toString();
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    void shouldDisplayCustomerMenuItems() {
+        MenuItem menuItemOne = new ViewBooks("View Books", bufferedReader, printWriter);
+        MenuItem menuItemTwo = new CheckoutBook("Checkout Book", bufferedReader, printWriter);
+        MenuItem menuItemThree = new ReturnBook("Return Book", bufferedReader, printWriter);
+        MenuItem menuItemFour = new QuitApplication("Quit Application", bufferedReader, printWriter);
+        MenuItem menuItemFive = new ViewMovies("View Movies", bufferedReader, printWriter);
+        MenuItem menuItemSix = new CheckoutMovie("Checkout Movie", bufferedReader, printWriter);
+        MenuItem menuItemSeven = new ReturnMovie("Return Movie", bufferedReader, printWriter);
+        MenuItem menuItemEight = new Logout("Logout", bufferedReader, printWriter);
+        customerMenuItems = new ArrayList<>();
+        customerMenuItems.add(menuItemOne);
+        customerMenuItems.add(menuItemTwo);
+        customerMenuItems.add(menuItemThree);
+        customerMenuItems.add(menuItemFour);
+        customerMenuItems.add(menuItemFive);
+        customerMenuItems.add(menuItemSix);
+        customerMenuItems.add(menuItemSeven);
+        customerMenuItems.add(menuItemEight);
+
+        menu = new Menu(defaultMenuItems, customerMenuItems, librarianMenuItems);
+        String expectedOutput = "1.  View Books\n" +
+                "2.  Checkout Book\n" +
+                "3.  Return Book\n" +
+                "4.  Quit Application\n" +
+                "5.  View Movies\n" +
+                "6.  Checkout Movie\n" +
+                "7.  Return Movie\n" +
+                "8.  Logout\n";
+
+        String actualOutput = menu.customerDisplay().toString();
+
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    void shouldDisplayLibrarianMenuItems() {
+        MenuItem menuItemOne = new ViewBooks("View Books", bufferedReader, printWriter);
+        MenuItem menuItemTwo = new CheckoutBook("Checkout Book", bufferedReader, printWriter);
+        MenuItem menuItemThree = new ReturnBook("Return Book", bufferedReader, printWriter);
+        MenuItem menuItemFour = new QuitApplication("Quit Application", bufferedReader, printWriter);
+        MenuItem menuItemFive = new ViewMovies("View Movies", bufferedReader, printWriter);
+        MenuItem menuItemSix = new CheckoutMovie("Checkout Movie", bufferedReader, printWriter);
+        MenuItem menuItemSeven = new ReturnMovie("Return Movie", bufferedReader, printWriter);
+        MenuItem menuItemTen = new ViewProfile("View Profile", bufferedReader, printWriter);
+        MenuItem menuItemEight = new Logout("Logout", bufferedReader, printWriter);
+        MenuItem menuItemNine = new ViewCheckoutDetails("View Checkout details of users", bufferedReader, printWriter);
+        librarianMenuItems = new ArrayList<>();
+        librarianMenuItems.add(menuItemOne);
+        librarianMenuItems.add(menuItemTwo);
+        librarianMenuItems.add(menuItemThree);
+        librarianMenuItems.add(menuItemFour);
+        librarianMenuItems.add(menuItemFive);
+        librarianMenuItems.add(menuItemSix);
+        librarianMenuItems.add(menuItemSeven);
+        librarianMenuItems.add(menuItemTen);
+        librarianMenuItems.add(menuItemNine);
+        librarianMenuItems.add(menuItemEight);
+        menu = new Menu(defaultMenuItems, customerMenuItems, librarianMenuItems);
+        String expectedOutput = "1.  View Books\n" +
+                "2.  Checkout Book\n" +
+                "3.  Return Book\n" +
+                "4.  Quit Application\n" +
+                "5.  View Movies\n" +
+                "6.  Checkout Movie\n" +
+                "7.  Return Movie\n" +
+                "8.  View Profile\n" +
+                "9.  View Checkout details of users\n" +
+                "10.  Logout\n";
+
+        String actualOutput = menu.librarianDisplay().toString();
+
         assertEquals(expectedOutput, actualOutput);
     }
 

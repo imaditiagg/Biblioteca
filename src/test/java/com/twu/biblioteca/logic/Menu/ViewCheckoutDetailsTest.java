@@ -23,10 +23,10 @@ class ViewCheckoutDetailsTest {
 
     @Test
     void shouldReturnLoginDescription() {
-        MenuItem login = new Login("Login", bufferedReader, printWriter);
-        String expectedOutput = "Login";
+        MenuItem viewCheckoutDetails = new ViewCheckoutDetails("View Checkout Details", bufferedReader, printWriter);
+        String expectedOutput = "View Checkout Details";
 
-        String actualOutput = login.description();
+        String actualOutput = viewCheckoutDetails.description();
 
         assertEquals(expectedOutput, actualOutput);
     }

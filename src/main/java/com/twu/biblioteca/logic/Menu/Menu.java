@@ -63,7 +63,6 @@ public class Menu {
         return librarianMenuItems.size();
     }
 
-
     public StringBuilder customerDisplay() {
         StringBuilder menuOutput = new StringBuilder();
         int index = 1;
