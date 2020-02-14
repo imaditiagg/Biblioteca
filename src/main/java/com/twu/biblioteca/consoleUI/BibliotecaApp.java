@@ -1,11 +1,9 @@
 package com.twu.biblioteca.consoleUI;
 
 import com.twu.biblioteca.constants.Message;
-import com.twu.biblioteca.logic.Book;
+import com.twu.biblioteca.logic.*;
 import com.twu.biblioteca.logic.Exception.InvalidMenuOption;
-import com.twu.biblioteca.logic.Library;
 import com.twu.biblioteca.logic.Menu.*;
-import com.twu.biblioteca.logic.Movie;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,6 +17,7 @@ public class BibliotecaApp {
     private final Menu menu;
     private static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     private static PrintWriter printWriter = new PrintWriter(System.out, true);
+    static User currentUser;
 
     public BibliotecaApp(Menu menu, Library library) {
         this.library = library;
@@ -29,13 +28,22 @@ public class BibliotecaApp {
         return Message.WELCOME;
     }
 
-    public StringBuilder displayMenu() {
+    public StringBuilder displayDefaultMenu() {
         return menu.display();
     }
 
+    public StringBuilder displayCustomerMenu() {
+        return menu.customerDisplay();
+    }
+
+    public StringBuilder displayLibrarianMenu() {
+        return menu.librarianDisplay();
+    }
+
+
     public void execute(int index) throws IOException {
         try {
-            menu.onOptionSelect(index, library);
+            menu.onOptionSelect(index, library, currentUser);
         } catch (InvalidMenuOption exception) {
             printWriter.println(Message.INVALID_OPTION);
         }
@@ -44,13 +52,24 @@ public class BibliotecaApp {
     public static void main(String[] args) throws IOException {
         Menu menu = buildMenu();
         Library library = buildLibrary();
+        ArrayList<Customer> customers = new ArrayList<>();
+        customers.add(new Customer("101-2020", "12345", false));
+        library.addCustomers(customers);
+        library.addLibrarian(new Librarian("202-2020", "12345", false));
         BibliotecaApp bibliotecaApp = new BibliotecaApp(menu, library);
 
         printWriter.println(bibliotecaApp.welcomeMessage());
         char wantToContinue;
         do {
             printWriter.println(Message.MENU_HEADER);
-            printWriter.println(bibliotecaApp.displayMenu());
+            currentUser = library.checkLoggedInUser();
+            if (currentUser == null) {
+                printWriter.println(bibliotecaApp.displayDefaultMenu());
+            } else if (currentUser.getClass() == Customer.class) {
+                printWriter.println(bibliotecaApp.displayCustomerMenu());
+            } else {
+                printWriter.println(bibliotecaApp.displayLibrarianMenu());
+            }
             printWriter.println(Message.ENTER_CHOICE);
             String input = bufferedReader.readLine();
             try {
@@ -90,14 +109,31 @@ public class BibliotecaApp {
         MenuItem menuItemFive = new ViewMovies("View Movies", bufferedReader, printWriter);
         MenuItem menuItemSix = new CheckoutMovie("Checkout Movie", bufferedReader, printWriter);
         MenuItem menuItemSeven = new ReturnMovie("Return Movie", bufferedReader, printWriter);
-        ArrayList<MenuItem> menuItems = new ArrayList<>();
-        menuItems.add(menuItemOne);
-        menuItems.add(menuItemTwo);
-        menuItems.add(menuItemThree);
-        menuItems.add(menuItemFour);
-        menuItems.add(menuItemFive);
-        menuItems.add(menuItemSix);
-        menuItems.add(menuItemSeven);
-        return new Menu(menuItems);
+        MenuItem menuItemEight = new Login("Login", bufferedReader, printWriter);
+        ArrayList<MenuItem> defaultMenuItems = new ArrayList<>();
+        ArrayList<MenuItem> customerMenuItems = new ArrayList<>();
+        ArrayList<MenuItem> userMenuItems = new ArrayList<>();
+        defaultMenuItems.add(menuItemOne);
+        defaultMenuItems.add(menuItemFive);
+        defaultMenuItems.add(menuItemEight);
+
+        customerMenuItems.add(menuItemOne);
+        customerMenuItems.add(menuItemTwo);
+        customerMenuItems.add(menuItemThree);
+        customerMenuItems.add(menuItemFive);
+        customerMenuItems.add(menuItemSix);
+        customerMenuItems.add(menuItemSeven);
+        customerMenuItems.add(menuItemFour);
+
+        userMenuItems.add(menuItemOne);
+        userMenuItems.add(menuItemTwo);
+        userMenuItems.add(menuItemThree);
+        userMenuItems.add(menuItemFive);
+        userMenuItems.add(menuItemSix);
+        userMenuItems.add(menuItemSeven);
+        userMenuItems.add(menuItemFour);
+
+
+        return new Menu(defaultMenuItems, customerMenuItems, userMenuItems);
     }
 }

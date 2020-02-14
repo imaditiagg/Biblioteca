@@ -23,4 +23,8 @@ public class Message {
     public static final String UNSUCCESSFUL_CHECKOUT_MOVIE = "Sorry, that movie is not available";
     public static final String SUCCESSFUL_RETURN_MOVIE = "Thank you for returning the movie";
     public static final String UNSUCCESSFUL_RETURN_MOVIE = "That is not a valid movie to return";
+    public static final String ENTER_USERNAME = "Enter username: ";
+    public static final String ENTER_PASSWORD = "Password: ";
+    public static final String INVALID_USERNAME_OR_PASSWORD_TRY_AGAIN = "Invalid username or password. Try Again!";
+    public static final String SUCCESSFUL_LOGIN = "Login Successful!";
 }

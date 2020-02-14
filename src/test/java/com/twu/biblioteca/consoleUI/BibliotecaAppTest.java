@@ -41,7 +41,7 @@ class BibliotecaAppTest {
         String expectedOutput = "1.  View Books" + "\n" + "2.  Checkout Book" + "\n" + "3.  Return Book"
                 + "\n" + "4.  Quit Application" + "\n";
 
-        String actualOutput = biblioteca.displayMenu().toString();
+        String actualOutput = biblioteca.displayDefaultMenu().toString();
 
         assertEquals(expectedOutput, actualOutput);
     }
@@ -54,6 +54,6 @@ class BibliotecaAppTest {
 
         biblioteca.execute(0);
 
-        verify(menuMock, times(1)).onOptionSelect(0, libraryMock);
+        verify(menuMock, times(1)).onOptionSelect(0, libraryMock, null);
     }
 }

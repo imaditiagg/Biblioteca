@@ -5,13 +5,23 @@ import java.util.ArrayList;
 //Job: To Represent Library
 public class Library {
     private final ArrayList<Movie> movies;
+    private ArrayList<Movie> checkoutMovies = new ArrayList<>();
     private ArrayList<Book> books;
     private ArrayList<Book> checkoutBooks = new ArrayList<>();
-    private ArrayList<Movie> checkoutMovies = new ArrayList<>();
+    private ArrayList<Customer> customers = new ArrayList<>();
+    private Librarian librarian;
 
     public Library(ArrayList<Book> books, ArrayList<Movie> movies) {
         this.books = books;
         this.movies = movies;
+    }
+
+    public void addLibrarian(Librarian librarian) {
+        this.librarian = librarian;
+    }
+
+    public void addCustomers(ArrayList<Customer> customers) {
+        this.customers = customers;
     }
 
     public ArrayList<Book> books() {
@@ -26,13 +36,6 @@ public class Library {
                 break;
             }
         }
-//        Optional<Book> book = books.stream()
-//                .filter(b -> bookName.equals(b.name()))
-//                .findFirst();
-//        if(book.isPresent()) {
-//            checkoutBooks.add(book.get());
-//            books.remove(book.get());
-//        }
     }
 
     public Book findInCheckoutBooks(String bookName) {
@@ -81,5 +84,30 @@ public class Library {
             checkoutMovies.remove(movie);
             movies.add(movie);
         }
+    }
+
+    public User validateUser(String userName, String password) {
+        if (userName.equals(librarian.libraryNumber) && password.equals(librarian.password)) {
+            return librarian;
+        } else {
+            for (Customer customer : customers) {
+                if (userName.equals(customer.libraryNumber) && password.equals(customer.password)) {
+                    return customer;
+                }
+            }
+        }
+        return null;
+    }
+
+    public User checkLoggedInUser() {
+        if (librarian.loggedIn) return librarian;
+        else {
+            for (Customer customer : customers) {
+                if (customer.loggedIn) {
+                    return customer;
+                }
+            }
+        }
+        return null;
     }
 }
