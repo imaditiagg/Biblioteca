@@ -1,6 +1,6 @@
 package com.twu.biblioteca.logic;
 
-
+//To represent Librarian
 public class Librarian extends User {
 
     public Librarian(String libraryNumber, String password, boolean loggedIn, String name, String email, String contactNo) {

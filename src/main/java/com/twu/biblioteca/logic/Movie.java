@@ -1,5 +1,6 @@
 package com.twu.biblioteca.logic;
 
+//Job: To represent Movie
 public class Movie {
 
     private final String name;

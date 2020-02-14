@@ -5,6 +5,7 @@ import com.twu.biblioteca.logic.Library;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 
+//Job: To represent ViewProfile Menu Item
 public class ViewProfile extends MenuItem {
 
     public ViewProfile(String description, BufferedReader bufferedReader, PrintWriter printWriter) {

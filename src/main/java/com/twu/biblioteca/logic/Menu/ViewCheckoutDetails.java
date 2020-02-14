@@ -5,6 +5,7 @@ import com.twu.biblioteca.logic.Library;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 
+//Job: To represent ViewCheckoutDetails Menu Item
 public class ViewCheckoutDetails extends MenuItem {
 
     public ViewCheckoutDetails(String description, BufferedReader bufferedReader, PrintWriter printWriter) {

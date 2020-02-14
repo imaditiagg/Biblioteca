@@ -1,5 +1,6 @@
 package com.twu.biblioteca.logic;
 
+//Job: To represent Customer
 public class Customer extends User {
 
     public Customer(String libraryNumber, String password, boolean loggedIn, String name, String email, String contactNo) {

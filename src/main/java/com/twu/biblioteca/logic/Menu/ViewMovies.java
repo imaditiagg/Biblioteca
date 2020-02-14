@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+//Job: To represent ViewMovies Menu Item
 public class ViewMovies extends MenuItem {
 
     public ViewMovies(String description, BufferedReader bufferedReader, PrintWriter printWriter) {

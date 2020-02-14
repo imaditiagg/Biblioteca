@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+//Job: To represent CheckoutMovie Menu Item
 public class CheckoutMovie extends MenuItem {
 
     public CheckoutMovie(String description, BufferedReader bufferedReader, PrintWriter printWriter) {

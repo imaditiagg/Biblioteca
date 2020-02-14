@@ -2,6 +2,7 @@ package com.twu.biblioteca.logic;
 
 import java.util.ArrayList;
 
+//To represent User
 abstract public class User {
     String name;
     String email;

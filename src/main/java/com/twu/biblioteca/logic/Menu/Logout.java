@@ -7,6 +7,7 @@ import com.twu.biblioteca.logic.User;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 
+//Job: To represent Logout Menu Item
 public class Logout extends MenuItem {
 
     public Logout(String description, BufferedReader bufferedReader, PrintWriter printWriter) {
