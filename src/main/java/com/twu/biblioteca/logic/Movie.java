@@ -22,4 +22,18 @@ public class Movie {
         return String.format(moviesListFormat, name, director, year, rating);
     }
 
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Movie that = (Movie) o;
+        return this.name.equals(that.name) && this.director == that.director
+                && this.rating.equals(that.rating) && this.year == that.year;
+    }
+
 }
