@@ -25,11 +25,16 @@ public class CheckoutBook extends MenuItem {
     public void action(Library library) throws IOException {
         printWriter.println(Message.ENTER_BOOK_NAME);
         String bookName = bufferedReader.readLine();
-        library.checkoutBook(bookName);
         if (library.findInCheckoutBooks(bookName) != null) {
-            printWriter.println(Message.SUCCESSFUL_CHECKOUT_BOOK);
-        } else {
             printWriter.println(Message.UNSUCCESSFUL_CHECKOUT_BOOK);
+        }
+        else {
+            library.checkoutBook(bookName);
+            if (library.findInCheckoutBooks(bookName) != null) {
+                printWriter.println(Message.SUCCESSFUL_CHECKOUT_BOOK);
+            } else {
+                printWriter.println(Message.UNSUCCESSFUL_CHECKOUT_BOOK);
+            }
         }
     }
 }

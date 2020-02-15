@@ -4,6 +4,9 @@ import com.twu.biblioteca.constants.Message;
 
 import java.util.ArrayList;
 
+import static com.twu.biblioteca.constants.Message.NO_BOOK_CHECKOUT;
+import static com.twu.biblioteca.constants.Message.NO_MOVIE_CHECKOUT;
+
 //Job: To Represent Library
 public class Library {
     private final ArrayList<Movie> movies;
@@ -128,19 +131,22 @@ public class Library {
     public StringBuilder obtainCheckoutDetails() {
         StringBuilder result = new StringBuilder();
         for (Customer customer : customers) {
+            result.append(customer.name);
             if (customer.checkedOutBooks.size() > 0) {
-                result.append(customer.name);
                 result.append("\n").append(Message.CHECKOUT_BOOKS).append("\n");
                 for (Book book : customer.checkedOutBooks) {
                     result.append(book.name()).append("\n");
                 }
+            } else {
+                result.append("\n").append(NO_BOOK_CHECKOUT).append("\n");
             }
             if (customer.checkedOutMovies.size() > 0) {
-                result.append(customer.name);
                 result.append("\n").append(Message.CHECKOUT_MOVIES).append("\n");
                 for (Movie movie : customer.checkedOutMovies) {
                     result.append(movie.name()).append("\n");
                 }
+            } else {
+                result.append("\n").append(NO_MOVIE_CHECKOUT).append("\n");
             }
         }
         result.append("\n");

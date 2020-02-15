@@ -30,4 +30,6 @@ public class Message {
     public static final String SUCCESSFUL_LOGOUT = "Logout Successful!";
     public static final String CHECKOUT_BOOKS = "Checkout Books:- ";
     public static final String CHECKOUT_MOVIES = "Checkout Movies:- ";
+    public static final String NO_BOOK_CHECKOUT = "No Book Checkout";
+    public static final String NO_MOVIE_CHECKOUT = "No Movie Checkout";
 }

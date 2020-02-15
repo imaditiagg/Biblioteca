@@ -25,11 +25,15 @@ public class CheckoutMovie extends MenuItem {
     public void action(Library library) throws IOException {
         printWriter.println(Message.ENTER_MOVIE_NAME);
         String movieName = bufferedReader.readLine();
-        library.checkoutMovie(movieName);
-        if (library.findInCheckoutMovies(movieName) != null) {
-            printWriter.println(Message.SUCCESSFUL_CHECKOUT_MOVIE);
+        if (library.findInCheckoutBooks(movieName) != null) {
+            printWriter.println(Message.UNSUCCESSFUL_CHECKOUT_BOOK);
         } else {
-            printWriter.println(Message.UNSUCCESSFUL_CHECKOUT_MOVIE);
+            library.checkoutMovie(movieName);
+            if (library.findInCheckoutMovies(movieName) != null) {
+                printWriter.println(Message.SUCCESSFUL_CHECKOUT_MOVIE);
+            } else {
+                printWriter.println(Message.UNSUCCESSFUL_CHECKOUT_MOVIE);
+            }
         }
     }
 }
