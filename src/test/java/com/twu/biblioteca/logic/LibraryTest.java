@@ -212,4 +212,18 @@ class LibraryTest {
 
         assertNull(library.findInCheckoutMovies(movieName));
     }
+
+    @Test
+    void shouldValidateUser() {
+        Library library = new Library(null, null);
+        String libraryNumber = "101-2020";
+        String password = "12345";
+        ArrayList<Customer> customers = new ArrayList<>();
+        Customer customer = new Customer("101-2020", "12345", false, "Aditi",
+                "aditi.aggarwal@thoughtworks.com", "8375939006");
+        customers.add(customer);
+        library.addCustomers(customers);
+
+        assertEquals(customer, library.validateUser(libraryNumber, password));
+    }
 }

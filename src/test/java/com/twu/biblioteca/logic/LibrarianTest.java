@@ -12,7 +12,7 @@ class LibrarianTest {
         User user = new Librarian("909-2020", "12345", false, "abc",
                 "abc@gmail.com", "8888888888");
 
-        user.loggedIn();
+        user.logIn();
 
         assertTrue(user.loggedIn);
     }
@@ -63,5 +63,4 @@ class LibrarianTest {
 
         assertEquals(0, user.checkedOutBooks.size());
     }
-
 }

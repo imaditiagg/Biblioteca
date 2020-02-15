@@ -35,7 +35,7 @@ public class Login extends MenuItem {
             printWriter.println(INVALID_USERNAME_OR_PASSWORD_TRY_AGAIN);
         else {
             printWriter.println(SUCCESSFUL_LOGIN);
-            user.loggedIn();
+            user.logIn();
         }
     }
 }

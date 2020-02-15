@@ -13,7 +13,7 @@ abstract public class User {
     ArrayList<Book> checkedOutBooks = new ArrayList<>();
     ArrayList<Movie> checkedOutMovies = new ArrayList<>();
 
-    public abstract void loggedIn();
+    public abstract void logIn();
 
     public abstract void checkoutBook(Book book);
 

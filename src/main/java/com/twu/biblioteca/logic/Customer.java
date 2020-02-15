@@ -13,7 +13,7 @@ public class Customer extends User {
     }
 
     @Override
-    public void loggedIn() {
+    public void logIn() {
         loggedIn = true;
     }
 

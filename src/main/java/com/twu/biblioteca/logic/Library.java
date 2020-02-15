@@ -101,7 +101,7 @@ public class Library {
     }
 
     public User validateUser(String userName, String password) {
-        if (userName.equals(librarian.libraryNumber) && password.equals(librarian.password)) {
+        if (librarian != null && userName.equals(librarian.libraryNumber) && password.equals(librarian.password)) {
             return librarian;
         } else {
             for (Customer customer : customers) {

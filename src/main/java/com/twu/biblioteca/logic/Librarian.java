@@ -14,7 +14,7 @@ public class Librarian extends User {
 
 
     @Override
-    public void loggedIn() {
+    public void logIn() {
         loggedIn = true;
     }
 
