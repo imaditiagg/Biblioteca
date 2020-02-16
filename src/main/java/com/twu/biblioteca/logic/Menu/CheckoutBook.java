@@ -27,8 +27,7 @@ public class CheckoutBook extends MenuItem {
         String bookName = bufferedReader.readLine();
         if (library.findInCheckoutBooks(bookName) != null) {
             printWriter.println(Message.UNSUCCESSFUL_CHECKOUT_BOOK);
-        }
-        else {
+        } else {
             library.checkoutBook(bookName);
             if (library.findInCheckoutBooks(bookName) != null) {
                 printWriter.println(Message.SUCCESSFUL_CHECKOUT_BOOK);

@@ -114,7 +114,7 @@ public class BibliotecaApp {
         MenuItem menuItemEight = new Login("Login", bufferedReader, printWriter);
         MenuItem menuItemNine = new ViewCheckoutDetails("View Checkout details of users", bufferedReader, printWriter);
         MenuItem menuItemTen = new ViewProfile("View Profile", bufferedReader, printWriter);
-        MenuItem menuItemEleven = new Logout("Logout",bufferedReader,printWriter);
+        MenuItem menuItemEleven = new Logout("Logout", bufferedReader, printWriter);
         ArrayList<MenuItem> defaultMenuItems = new ArrayList<>();
         ArrayList<MenuItem> customerMenuItems = new ArrayList<>();
         ArrayList<MenuItem> librarianMenuItems = new ArrayList<>();
