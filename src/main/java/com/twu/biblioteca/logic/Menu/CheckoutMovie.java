@@ -25,7 +25,7 @@ public class CheckoutMovie extends MenuItem {
     public void action(Library library) throws IOException {
         printWriter.println(Message.ENTER_MOVIE_NAME);
         String movieName = bufferedReader.readLine();
-        if (library.findInCheckoutBooks(movieName) != null) {
+        if (library.findInCheckoutMovies(movieName) != null) {
             printWriter.println(Message.UNSUCCESSFUL_CHECKOUT_BOOK);
         } else {
             library.checkoutMovie(movieName);

@@ -48,6 +48,6 @@ class CheckoutMovieTest {
 
         checkoutMovie.action(libraryMock);
 
-        verify(libraryMock, times(1)).findInCheckoutMovies(null);
+        verify(libraryMock, times(2)).findInCheckoutMovies(null);
     }
 }

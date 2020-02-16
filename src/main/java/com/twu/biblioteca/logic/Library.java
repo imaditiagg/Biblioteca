@@ -131,7 +131,7 @@ public class Library {
     public StringBuilder obtainCheckoutDetails() {
         StringBuilder result = new StringBuilder();
         for (Customer customer : customers) {
-            result.append(customer.name);
+            result.append("----------").append(customer.name).append("----------\n");
             if (customer.checkedOutBooks.size() > 0) {
                 result.append("\n").append(Message.CHECKOUT_BOOKS).append("\n");
                 for (Book book : customer.checkedOutBooks) {
@@ -156,7 +156,8 @@ public class Library {
     public StringBuilder obtainUserDetails() {
         User user = loggedInUser();
         StringBuilder result = new StringBuilder();
-        result.append(user.name).append("  ; ").append(user.email).append(" ; ").append(user.contactNo);
+        if (user != null)
+            result.append(user.name).append("  ; ").append(user.email).append(" ; ").append(user.contactNo);
         return result;
     }
 }

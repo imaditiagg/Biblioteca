@@ -48,6 +48,6 @@ class CheckoutBookTest {
 
         checkoutBook.action(libraryMock);
 
-        verify(libraryMock, times(1)).findInCheckoutBooks(null);
+        verify(libraryMock, times(2)).findInCheckoutBooks(null);
     }
 }
